@@ -1,0 +1,119 @@
+@if (!r().terminou) {
+  @if (atual(); as q) {
+    <div class="topo">
+      <span class="contador">
+        Questão {{ r().indice + 1 }} de {{ total() }}
+        @if (!r().completa) { <em>(revisão dos erros)</em> }
+      </span>
+      <span class="placar">
+        <mat-icon>check_circle</mat-icon> {{ r().acertos }}
+      </span>
+    </div>
+    <mat-progress-bar mode="determinate" [value]="percentual()" aria-label="Andamento do quiz" />
+
+    <mat-card class="questao" appearance="outlined">
+      <mat-card-content>
+        <div class="enunciado" id="enunciado">
+          <app-markdown [texto]="q.enunciado" [inline]="true" />
+        </div>
+
+        <mat-radio-group
+          class="opcoes"
+          aria-labelledby="enunciado"
+          [value]="r().escolha"
+          [disabled]="r().respondida"
+          (change)="escolher($event)"
+        >
+          @for (alt of q.alternativas; track $index) {
+            <div
+              class="opcao"
+              [class.marcada]="!r().respondida && r().escolha === $index"
+              [class.certa]="r().respondida && $index === q.correta"
+              [class.errada]="r().respondida && r().escolha === $index && $index !== q.correta"
+            >
+              <mat-radio-button [value]="$index">
+                <span class="letra">{{ letras[$index] }})</span>
+                <app-markdown [texto]="alt" [inline]="true" />
+              </mat-radio-button>
+              @if (r().respondida && $index === q.correta) {
+                <mat-icon class="selo" aria-label="Alternativa correta">check_circle</mat-icon>
+              } @else if (r().respondida && r().escolha === $index) {
+                <mat-icon class="selo" aria-label="Sua resposta, incorreta">cancel</mat-icon>
+              }
+            </div>
+          }
+        </mat-radio-group>
+
+        @if (r().respondida) {
+          <output class="feedback" [class.feedback-ok]="acertou()" [class.feedback-erro]="!acertou()">
+            <p class="feedback-titulo">
+              @if (acertou()) {
+                <mat-icon>check_circle</mat-icon> Correto!
+              } @else {
+                <mat-icon>cancel</mat-icon> Errado — a resposta certa é a letra {{ letras[q.correta] }}.
+              }
+            </p>
+            <app-markdown [texto]="q.comentario" />
+          </output>
+        }
+      </mat-card-content>
+
+      <mat-card-actions class="acoes">
+        @if (!r().respondida) {
+          <button mat-flat-button [disabled]="r().escolha === null" (click)="responder()">
+            Responder
+          </button>
+        } @else {
+          <button mat-flat-button (click)="proxima()">
+            {{ r().indice + 1 >= total() ? 'Ver resultado' : 'Próxima questão' }}
+            <mat-icon iconPositionEnd>arrow_forward</mat-icon>
+          </button>
+        }
+      </mat-card-actions>
+    </mat-card>
+  } @else {
+    <p class="subtitulo">Sem questões nesta rodada.</p>
+  }
+} @else {
+  <mat-card class="resultado" appearance="outlined">
+    <mat-card-content>
+      <p class="nota"><strong>{{ r().acertos }}</strong> / {{ total() }}</p>
+      <p class="mensagem">{{ mensagem(r().acertos, total()) }}</p>
+      @if (r().completa && melhor(); as m) {
+        <p class="melhor">Sua melhor nota nesta disciplina: {{ m.melhor }} de {{ m.total }}</p>
+      }
+    </mat-card-content>
+    <mat-card-actions class="acoes">
+      <button mat-flat-button (click)="refazerTudo()">
+        <mat-icon>replay</mat-icon> Refazer tudo
+      </button>
+      @if (r().erradas.length) {
+        <button mat-stroked-button (click)="refazerErradas()">
+          <mat-icon>rule</mat-icon> Refazer só as {{ r().erradas.length }} erradas
+        </button>
+      }
+    </mat-card-actions>
+  </mat-card>
+
+  @if (r().erradas.length) {
+    <h2 class="titulo-revisao">Revise o que errou</h2>
+    <mat-accordion displayMode="flat">
+      @for (e of r().erradas; track e.id) {
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="revisao-titulo">
+              <app-markdown [texto]="e.enunciado" [inline]="true" />
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="revisao-certa">
+            <strong>Resposta certa:</strong> {{ letras[e.correta] }})
+            <app-markdown [texto]="e.alternativas[e.correta]" [inline]="true" />
+          </p>
+          <app-markdown [texto]="e.comentario" />
+        </mat-expansion-panel>
+      }
+    </mat-accordion>
+  } @else {
+    <p class="subtitulo sem-erros">Nenhum erro nesta rodada — nada a revisar.</p>
+  }
+}

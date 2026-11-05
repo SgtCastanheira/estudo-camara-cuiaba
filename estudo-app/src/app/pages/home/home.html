@@ -1,0 +1,91 @@
+<div class="pagina">
+  <mat-card class="destaque" appearance="filled">
+    <mat-card-content>
+      <p class="rotulo">Prova objetiva · {{ dataProva | date: 'dd/MM/yyyy' }}</p>
+      @if (diasRestantes > 1) {
+        <p class="contagem"><strong>{{ diasRestantes }}</strong> dias</p>
+        <p class="legenda">para a prova — banca Instituto Selecon</p>
+      } @else if (diasRestantes === 1) {
+        <p class="contagem"><strong>Amanhã</strong></p>
+        <p class="legenda">é a prova. Revise com calma e descanse.</p>
+      } @else if (diasRestantes === 0) {
+        <p class="contagem"><strong>Hoje</strong></p>
+        <p class="legenda">é o dia da prova. Boa sorte!</p>
+      } @else {
+        <p class="contagem"><strong>Prova realizada</strong></p>
+      }
+
+      <div class="geral">
+        <div class="geral-texto">
+          <span>Progresso geral</span>
+          <span>{{ topicosEstudados() }} de {{ totalTopicos }} tópicos disponíveis</span>
+        </div>
+        <mat-progress-bar mode="determinate" [value]="percentualGeral()" aria-label="Progresso geral" />
+      </div>
+    </mat-card-content>
+    @if (proxima(); as p) {
+      <mat-card-actions>
+        <a mat-flat-button [routerLink]="['/disciplina', p.id]">
+          <mat-icon>play_arrow</mat-icon>
+          Continuar: {{ p.nome }}
+        </a>
+      </mat-card-actions>
+    }
+  </mat-card>
+
+  <section class="estrutura" aria-label="Estrutura da prova">
+    <div class="tile"><strong>70</strong><span>questões</span></div>
+    <div class="tile"><strong>100</strong><span>pontos</span></div>
+    <div class="tile"><strong>3</strong><span>áreas de conhecimento</span></div>
+  </section>
+
+  @for (area of areas; track area.id) {
+    <section class="area">
+      <h2 class="area-titulo">{{ area.nome }}</h2>
+      <p class="subtitulo">{{ area.questoes }} questões · {{ area.peso }}</p>
+
+      <div class="grade">
+        @for (d of area.disciplinas; track d.id) {
+          <mat-card class="disciplina" [class.indisponivel]="!d.disponivel" appearance="outlined">
+            <mat-card-header>
+              <mat-icon mat-card-avatar class="icone">{{ d.icone }}</mat-icon>
+              <mat-card-title>{{ d.nome }}</mat-card-title>
+              <mat-card-subtitle>
+                ≈ {{ d.questoesProva }} questões na prova@if (d.peso) { · peso {{ d.peso }} }
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              @if (d.disponivel) {
+                <div class="progresso-texto">
+                  <span>{{ estudados(d.id) }} de {{ d.totalTopicos }} tópicos</span>
+                  @if (resultado(d.id); as r) {
+                    <span>Melhor: {{ r.melhor }}/{{ r.total }}</span>
+                  }
+                </div>
+                <mat-progress-bar
+                  mode="determinate"
+                  [value]="percentual(d.id, d.totalTopicos)"
+                  [attr.aria-label]="'Progresso em ' + d.nome"
+                />
+              } @else {
+                <mat-chip-set aria-label="Situação">
+                  <mat-chip disabled>Em breve · {{ d.arquivo }}</mat-chip>
+                </mat-chip-set>
+              }
+            </mat-card-content>
+            @if (d.disponivel) {
+              <mat-card-actions>
+                <a mat-button [routerLink]="['/disciplina', d.id]">Estudar</a>
+              </mat-card-actions>
+            }
+          </mat-card>
+        }
+      </div>
+    </section>
+  }
+
+  <p class="aviso">
+    A divisão de questões por disciplina é uma estimativa — o edital fixa apenas o total de cada
+    área. Confira sempre o edital oficial.
+  </p>
+</div>

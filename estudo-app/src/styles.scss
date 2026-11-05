@@ -1,0 +1,143 @@
+@use '@angular/material' as mat;
+
+// Fontes hospedadas junto com o app (em vez do Google Fonts): assim funcionam offline
+// e o navegador não faz nenhuma requisição a terceiros. Só woff2 (todo navegador moderno).
+$roboto: '../node_modules/@fontsource/roboto/files/roboto-latin';
+@each $peso in (400, 500, 700) {
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: $peso;
+    font-display: swap;
+    src: url('#{$roboto}-#{$peso}-normal.woff2') format('woff2');
+  }
+}
+
+// Fonte de ícones: "block" de propósito — com "swap" o nome do ícone ("menu_book") apareceria
+// como texto enquanto a fonte carrega. Sem fonte genérica de reserva, pelo mesmo motivo.
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('../node_modules/material-icons/iconfont/material-icons.woff2') format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+}
+
+html {
+  height: 100%;
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  // O tema claro/escuro é definido em tempo de execução pelo AppComponent
+  // (claro, escuro ou automático conforme o sistema).
+  color-scheme: light dark;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-large);
+  margin: 0;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  // Cores de acerto/erro que funcionam nos dois temas.
+  --ok-bg: light-dark(#d9f2df, #1d3a26);
+  --ok-fg: light-dark(#0a3d18, #c3ecce);
+  --ok-border: light-dark(#2e7d46, #5fb97b);
+  --err-bg: var(--mat-sys-error-container);
+  --err-fg: var(--mat-sys-on-error-container);
+  --err-border: var(--mat-sys-error);
+}
+
+* { box-sizing: border-box; }
+
+// Contêiner de página: centraliza e limita a largura em telas grandes.
+.pagina {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.titulo-pagina {
+  font: var(--mat-sys-headline-medium);
+  margin: 8px 0 4px;
+}
+
+.subtitulo {
+  color: var(--mat-sys-on-surface-variant);
+  margin: 0 0 16px;
+}
+
+// Quiz: a linha inteira da alternativa deve ser tocável, não só o círculo e o texto.
+// (Fica aqui, e não no quiz.scss, porque estiliza o interior do mat-radio-button.)
+app-quiz .opcao {
+  .mat-mdc-radio-button,
+  .mdc-form-field {
+    width: 100%;
+  }
+
+  .mdc-form-field > label {
+    flex: 1 1 auto;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    cursor: pointer;
+  }
+
+  .mdc-form-field > label app-markdown {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+// Painéis sanfona: o cabeçalho cresce com o texto (títulos longos quebram em várias
+// linhas no celular) em vez de ter altura fixa e cortar o conteúdo.
+.mat-expansion-panel {
+  --mat-expansion-header-collapsed-state-height: auto;
+  --mat-expansion-header-expanded-state-height: auto;
+
+  // Cada painel vira um "cartão" separado dos vizinhos (o espaço vem do gap do accordion).
+  margin: 0 !important;
+  border-radius: 16px !important;
+  background: var(--mat-sys-surface-container);
+}
+
+.mat-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mat-expansion-panel .mat-expansion-panel-header {
+  min-height: 48px;
+  padding-block: 14px; // seletor mais específico: o Material define "padding: 0 24px"
+}
+
+// Telas pequenas (celular).
+@media (max-width: 599.98px) {
+  .pagina { padding: 12px; }
+  .titulo-pagina { font: var(--mat-sys-headline-small); }
+}

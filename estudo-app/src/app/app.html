@@ -1,0 +1,74 @@
+<mat-toolbar class="barra">
+  <button mat-icon-button (click)="alternarMenu()" aria-label="Abrir ou fechar o menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a class="marca" routerLink="/" aria-label="Ir para o início">
+    <span class="marca-titulo">Estudo</span>
+    <span class="marca-sub">Câmara de Cuiabá · Analista TI</span>
+  </a>
+  <span class="espaco"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menuTema" aria-label="Escolher tema">
+    <mat-icon>{{ iconeDoTema() }}</mat-icon>
+  </button>
+  <mat-menu #menuTema="matMenu">
+    @for (t of temas; track t.id) {
+      <button mat-menu-item (click)="progresso.definirTema(t.id)">
+        <mat-icon>{{ t.icone }}</mat-icon>
+        <span>{{ t.nome }}</span>
+      </button>
+    }
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="container">
+  <mat-sidenav
+    class="menu"
+    [mode]="compacto() ? 'over' : 'side'"
+    [opened]="menuAberto()"
+    (closedStart)="menuAberto.set(false)"
+  >
+    <mat-nav-list>
+      <a
+        mat-list-item
+        routerLink="/"
+        routerLinkActive
+        #inicio="routerLinkActive"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [activated]="inicio.isActive"
+        (click)="aoNavegar()"
+      >
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span matListItemTitle>Início</span>
+      </a>
+
+      @for (area of areas; track area.id) {
+        <h3 matSubheader>{{ area.nome }}</h3>
+        @for (d of area.disciplinas; track d.id) {
+          @if (d.disponivel) {
+            <a
+              mat-list-item
+              [routerLink]="['/disciplina', d.id]"
+              routerLinkActive
+              #ativo="routerLinkActive"
+              [activated]="ativo.isActive"
+              (click)="aoNavegar()"
+            >
+              <mat-icon matListItemIcon>{{ d.icone }}</mat-icon>
+              <span matListItemTitle>{{ d.nomeCurto }}</span>
+            </a>
+          } @else {
+            <a mat-list-item class="em-breve" aria-disabled="true" tabindex="-1">
+              <mat-icon matListItemIcon>{{ d.icone }}</mat-icon>
+              <span matListItemTitle>{{ d.nomeCurto }}</span>
+              <span matListItemLine>Em breve</span>
+            </a>
+          }
+        }
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,109 @@
+@if (disciplina(); as d) {
+  @if (conteudo(); as c) {
+    <div class="pagina">
+      <h1 class="titulo-pagina">{{ d.nome }}</h1>
+      <p class="subtitulo">
+        Edital 001/2026-CMC · Anexo V · banca Instituto Selecon
+        @if (rotuloPeso(); as peso) { · peso {{ peso }} }
+      </p>
+
+      <mat-tab-group
+        mat-stretch-tabs="true"
+        animationDuration="0ms"
+        [preserveContent]="true"
+        aria-label="Seções da disciplina"
+      >
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="icone-aba">menu_book</mat-icon>
+            Estudar
+          </ng-template>
+
+          <div class="aba">
+            @if (c.intro) {
+              <div class="intro"><app-markdown [texto]="c.intro" /></div>
+            }
+
+            <div class="resumo">
+              <div class="resumo-texto">
+                <span>Seu progresso</span>
+                <span>{{ estudados() }} de {{ c.topicos.length }} tópicos estudados</span>
+              </div>
+              <mat-progress-bar mode="determinate" [value]="percentual()" aria-label="Progresso na disciplina" />
+            </div>
+
+            <mat-accordion displayMode="flat">
+              @for (t of c.topicos; track t.id) {
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      @if (progresso.estudado(d.id, t.id)) {
+                        <mat-icon class="ok" aria-label="Estudado">check_circle</mat-icon>
+                      }
+                      <span>{{ t.titulo }}</span>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+
+                  <app-markdown [texto]="t.conteudo" />
+
+                  @if (t.fixacao.length) {
+                    <aside class="fixacao" aria-label="Fixação">
+                      <h4>
+                        <mat-icon>bolt</mat-icon>
+                        Fixação@if (t.fixacaoTitulo) { · {{ t.fixacaoTitulo }} }
+                      </h4>
+                      <ol>
+                        @for (f of t.fixacao; track $index) {
+                          <li><app-markdown [texto]="f" [inline]="true" /></li>
+                        }
+                      </ol>
+                    </aside>
+                  }
+
+                  <mat-action-row>
+                    @if (progresso.estudado(d.id, t.id)) {
+                      <button mat-stroked-button (click)="progresso.alternarEstudado(d.id, t.id)">
+                        <mat-icon>undo</mat-icon> Desmarcar
+                      </button>
+                    } @else {
+                      <button mat-flat-button (click)="progresso.alternarEstudado(d.id, t.id)">
+                        <mat-icon>check</mat-icon> Marcar como estudado
+                      </button>
+                    }
+                  </mat-action-row>
+                </mat-expansion-panel>
+              }
+            </mat-accordion>
+          </div>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="icone-aba">quiz</mat-icon>
+            Questões
+          </ng-template>
+
+          <div class="aba">
+            <app-quiz [disciplinaId]="d.id" [questoes]="c.questoes" />
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  } @else {
+    <div class="pagina vazio">
+      <mat-icon class="icone-grande">hourglass_empty</mat-icon>
+      <h1 class="titulo-pagina">{{ d.nome }}</h1>
+      <p class="subtitulo">
+        O conteúdo desta disciplina ainda está em preparação
+        (arquivo <code>{{ d.arquivo }}</code> da série de estudo).
+      </p>
+      <a mat-flat-button routerLink="/">Voltar ao início</a>
+    </div>
+  }
+} @else {
+  <div class="pagina vazio">
+    <mat-icon class="icone-grande">search_off</mat-icon>
+    <h1 class="titulo-pagina">Disciplina não encontrada</h1>
+    <a mat-flat-button routerLink="/">Voltar ao início</a>
+  </div>
+}
