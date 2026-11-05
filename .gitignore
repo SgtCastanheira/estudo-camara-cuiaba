@@ -1,0 +1,8 @@
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+
+# Pastas locais do Claude Code
+.claude/
