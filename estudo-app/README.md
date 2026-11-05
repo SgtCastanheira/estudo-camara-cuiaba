@@ -49,6 +49,24 @@ hospedagem serve. Opções gratuitas:
 
 Atenção: quem tiver o link consegue abrir o app e ler todo o conteúdo dos `.md`.
 
+## Ouvir no fone (áudio)
+
+Em **Estudar**, use **Ouvir a disciplina inteira** ou **Ouvir daqui** em qualquer tópico. O app lê
+o tópico (título, conteúdo e a Fixação) em português e passa sozinho para o próximo. A barra de
+áudio fica no rodapé e continua tocando enquanto você navega.
+
+- **Voz do aparelho:** usa a síntese de voz do próprio celular/computador (Web Speech API), sem
+  internet e sem arquivos de áudio. A qualidade depende das vozes instaladas. Em **Opções**
+  (ícone de ajustes) dá para trocar a voz, a velocidade (0,75× a 2×) e manter a tela ligada.
+- **Android:** instale/baixe a voz *Português (Brasil)* em Configurações → Idioma → Saída de
+  texto para fala (para funcionar offline). **iPhone:** a voz *Luciana* já vem instalada.
+- **Fone e tela de bloqueio:** o app registra os botões play/pause/próximo/anterior (Media Session)
+  e pede para manter a tela ligada. É "melhor esforço": **alguns aparelhos interrompem a fala
+  quando a tela bloqueia** (sobretudo iPhone). Se acontecer, deixe a tela ligada (a opção vem
+  ativada) ou me avise para gerarmos arquivos de áudio prontos, que não sofrem disso.
+- **Texto falado:** `src/app/audio/fala.ts` converte o Markdown em texto bom de ouvir (símbolos
+  lógicos, artigos de lei, tabelas, siglas). Testes: `npm run test:fala`.
+
 ## Conteúdo: os .md são a fonte
 
 `npm start` e `npm run build` rodam antes o gerador `scripts/gerar-conteudo.mjs`, que lê os `.md`
@@ -88,6 +106,7 @@ Só são lidos arquivos que tenham `slug:` no cabeçalho. Outra pasta de `.md`:
 
 ## O que tem
 
+- **Áudio:** ouvir os tópicos no fone, com velocidade e voz ajustáveis.
 - **PWA:** instalável na tela inicial, funciona offline, fontes e ícones hospedados com o app
   (nenhuma requisição a terceiros).
 
@@ -112,6 +131,7 @@ scripts/        gerar-conteudo.mjs  (.md -> conteudo.gerado.ts)
 public/         manifest.webmanifest, icons/, _redirects   (PWA e hospedagem)
 ngsw-config.json   o que o service worker guarda para o modo offline
 src/app/
+  audio/        leitura em voz alta: fala.ts (texto), audio.service.ts, player, opções
   data/         modelos, lista de disciplinas e conteudo.gerado.ts (gerado dos .md)
   services/     progresso.service.ts (localStorage + tema)
   components/   quiz e renderizador de Markdown

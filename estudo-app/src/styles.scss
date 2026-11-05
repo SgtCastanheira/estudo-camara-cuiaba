@@ -113,6 +113,31 @@ app-quiz .opcao {
   }
 }
 
+// Área de conteúdo em coluna: o player de áudio (sticky, margin-top:auto) fica no rodapé.
+// (A classe .mat-drawer-content é necessária: o Material define "display: block" nela.)
+mat-sidenav-content.mat-drawer-content {
+  display: flex;
+  flex-direction: column;
+
+  > * { flex-shrink: 0; }
+}
+
+// Gaveta de opções do áudio: a linha inteira da voz é tocável (como nas alternativas do quiz).
+.gaveta-audio .vozes {
+  .mat-mdc-radio-button,
+  .mdc-form-field {
+    width: 100%;
+  }
+
+  .mdc-form-field > label {
+    flex: 1 1 auto;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
 // Painéis sanfona: o cabeçalho cresce com o texto (títulos longos quebram em várias
 // linhas no celular) em vez de ter altura fixa e cortar o conteúdo.
 .mat-expansion-panel {

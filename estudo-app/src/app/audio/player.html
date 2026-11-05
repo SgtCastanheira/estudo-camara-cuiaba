@@ -1,0 +1,41 @@
+@if (audio.ativo()) {
+  <section class="player" aria-label="Player de áudio">
+    <mat-progress-bar mode="determinate" [value]="audio.progresso() * 100" aria-label="Andamento do tópico" />
+
+    <div class="linha">
+      <div class="info">
+        <span class="titulo">{{ audio.item()?.titulo }}</span>
+        <span class="sub">
+          {{ audio.item()?.subtitulo }} · {{ audio.indice() + 1 }} de {{ audio.fila().length }}
+          @if (audio.estado() === 'pausado') { · pausado }
+        </span>
+      </div>
+
+      <div class="controles">
+        <button mat-icon-button (click)="audio.anteriorItem()" aria-label="Tópico anterior">
+          <mat-icon>skip_previous</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          (click)="audio.alternar()"
+          [attr.aria-label]="audio.estado() === 'tocando' ? 'Pausar' : 'Continuar'"
+        >
+          <mat-icon>{{ audio.estado() === 'tocando' ? 'pause' : 'play_arrow' }}</mat-icon>
+        </button>
+        <button mat-icon-button (click)="audio.proximoItem()" aria-label="Próximo tópico">
+          <mat-icon>skip_next</mat-icon>
+        </button>
+        <button mat-icon-button (click)="abrirOpcoes()" aria-label="Opções de áudio">
+          <mat-icon>tune</mat-icon>
+        </button>
+        <button mat-icon-button (click)="audio.parar()" aria-label="Fechar o player e parar o áudio">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </section>
+}
+
+@if (audio.erro(); as erro) {
+  <p class="erro" role="alert">{{ erro }}</p>
+}

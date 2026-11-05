@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { map } from 'rxjs';
 import { AREAS, DISCIPLINAS, conteudoDe, disciplinasDaArea } from './data/disciplinas';
+import { Player } from './audio/player';
 import { AtualizacaoService } from './services/atualizacao.service';
 import { ProgressoService, Tema } from './services/progresso.service';
 
@@ -39,6 +40,7 @@ const ICONE_DO_TEMA: Record<Tema, string> = {
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    Player,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

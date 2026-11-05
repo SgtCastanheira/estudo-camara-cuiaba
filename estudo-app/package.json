@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "conteudo": "node scripts/gerar-conteudo.mjs",
+    "test:fala": "node --no-warnings --test src/app/audio/fala.test.mts",
     "prestart": "npm run conteudo",
     "start": "ng serve",
     "prebuild": "npm run conteudo",

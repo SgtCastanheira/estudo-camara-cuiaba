@@ -61,3 +61,37 @@ mat-panel-title {
   height: 56px;
   color: var(--mat-sys-on-surface-variant);
 }
+
+.ouvir-tudo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 16px;
+}
+
+.dica {
+  font: var(--mat-sys-body-small);
+  color: var(--mat-sys-on-surface-variant);
+  flex: 1 1 200px;
+}
+
+.falando {
+  color: var(--mat-sys-primary);
+  flex: none;
+  animation: pulsa 1.2s ease-in-out infinite;
+}
+
+@keyframes pulsa {
+  50% { opacity: 0.4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .falando { animation: none; }
+}
+
+// Botões da ação do painel quebram de linha em telas estreitas.
+mat-action-row {
+  flex-wrap: wrap;
+  gap: 8px;
+}
