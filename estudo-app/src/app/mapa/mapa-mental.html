@@ -1,0 +1,21 @@
+<div class="barra">
+  <mat-form-field appearance="outline" subscriptSizing="dynamic" class="seletor">
+    <mat-label>Mostrar</mat-label>
+    <mat-select [value]="selecao()" (selectionChange)="escolher($event.value)" aria-label="Escolher o que mostrar no mapa">
+      <mat-option [value]="-1">Disciplina inteira</mat-option>
+      @for (t of topicos(); track $index) {
+        <mat-option [value]="$index">{{ t.titulo }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <button mat-stroked-button (click)="ajustar()"><mat-icon>fit_screen</mat-icon> Ajustar</button>
+</div>
+
+<p class="dica">
+  Toque num ramo para abrir ou fechar. Arraste para mover e use dois dedos para aproximar.
+  Para estudar com calma, escolha um tópico.
+</p>
+
+<div class="area" role="img" [attr.aria-label]="'Mapa mental de ' + titulo()">
+  <svg #svg></svg>
+</div>

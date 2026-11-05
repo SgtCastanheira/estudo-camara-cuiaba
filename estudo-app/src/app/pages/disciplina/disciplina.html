@@ -104,6 +104,23 @@
             <app-quiz [disciplinaId]="d.id" [questoes]="c.questoes" />
           </div>
         </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="icone-aba">account_tree</mat-icon>
+            Mapa
+          </ng-template>
+
+          <ng-template matTabContent>
+            <div class="aba">
+              @defer {
+                <app-mapa-mental [titulo]="d.nome" [topicos]="c.topicos" />
+              } @placeholder {
+                <p class="dica">Carregando o mapa…</p>
+              }
+            </div>
+          </ng-template>
+        </mat-tab>
       </mat-tab-group>
     </div>
   } @else {

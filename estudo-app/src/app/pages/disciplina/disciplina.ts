@@ -11,6 +11,7 @@ import { MarkdownComponent } from '../../components/markdown';
 import { Quiz } from '../../components/quiz';
 import { conteudoDe, disciplinaPorId } from '../../data/disciplinas';
 import { ROTULO_PESO } from '../../data/modelos';
+import { MapaMental } from '../../mapa/mapa-mental';
 import { ProgressoService } from '../../services/progresso.service';
 
 @Component({
@@ -24,6 +25,7 @@ import { ProgressoService } from '../../services/progresso.service';
     MatProgressBarModule,
     MarkdownComponent,
     Quiz,
+    MapaMental,
   ],
   templateUrl: './disciplina.html',
   styleUrl: './disciplina.scss',

@@ -49,6 +49,14 @@ hospedagem serve. Opções gratuitas:
 
 Atenção: quem tiver o link consegue abrir o app e ler todo o conteúdo dos `.md`.
 
+## Mapa mental
+
+Aba **Mapa** de cada disciplina: um mapa mental interativo gerado automaticamente do `.md`.
+Cada termo em **negrito** vira um ramo e a explicação vira o filho dele; as seções, tabelas e a
+Fixação também viram ramos. Escolha **Disciplina inteira** ou **um tópico** (abre completo, melhor
+para estudar). Toque num ramo para abrir/fechar, arraste para mover, dois dedos para aproximar;
+**Ajustar** reenquadra. Biblioteca: markmap (carregada só ao abrir a aba). Código: `src/app/mapa/`.
+
 ## Ouvir no fone (áudio)
 
 Em **Estudar**, use **Ouvir a disciplina inteira** ou **Ouvir daqui** em qualquer tópico. O app lê
@@ -106,6 +114,7 @@ Só são lidos arquivos que tenham `slug:` no cabeçalho. Outra pasta de `.md`:
 
 ## O que tem
 
+- **Mapa mental:** de cada disciplina, gerado do próprio `.md`.
 - **Áudio:** ouvir os tópicos no fone, com velocidade e voz ajustáveis.
 - **PWA:** instalável na tela inicial, funciona offline, fontes e ícones hospedados com o app
   (nenhuma requisição a terceiros).

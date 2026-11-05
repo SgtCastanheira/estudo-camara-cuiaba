@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "conteudo": "node scripts/gerar-conteudo.mjs",
-    "test:fala": "node --no-warnings --test src/app/audio/fala.test.mts",
+    "test:fala": "node --no-warnings --test src/app/audio/fala.test.mts src/app/mapa/arvore.test.mts",
     "prestart": "npm run conteudo",
     "start": "ng serve",
     "prebuild": "npm run conteudo",
@@ -38,6 +38,8 @@
     "@angular/service-worker": "^21.0.0",
     "@fontsource/roboto": "^5.3.0",
     "marked": "^18.1.3",
+    "markmap-common": "^0.18.9",
+    "markmap-view": "^0.18.12",
     "material-icons": "^1.13.14",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
