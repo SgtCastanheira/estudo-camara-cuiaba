@@ -11,14 +11,17 @@ Legenda: ✅ link encontrado em pesquisa e que aponta para a fonte oficial ou re
 ## 1. Legislação municipal (4 normas do edital)
 
 Prioridade alta: são decoreba de ponto certo e o texto oficial é a única fonte confiável.
+**Atualizado em 16/11/2026:** os textos já estão na pasta local `Base de conhecimento/` (não vai para o GitHub) e a apostila `2° parte/08-legislacao.md` foi refeita a partir deles.
 
-| Norma | Onde achar |
+| Norma | Situação |
 |---|---|
-| Lei Orgânica do Município de Cuiabá (05/04/1990) | 🔎 **Não achei o texto integral.** Procure no portal legislativo da Câmara (legislativo.camaracuiaba.mt.gov.br) por "Lei Orgânica do Município". Cuidado: o PDF que parecia ser a lei (pasta PELOM) é só uma *proposta de emenda* ao art. 8º (4 páginas). Os projetos de emenda (PELOM) no portal servem para ver o que mudou, não como texto base. |
-| Regimento Interno (Resolução nº 08, de 15/12/2016) | 🔎 Não achei o texto integral. Procure em <https://legislativo.camaracuiaba.mt.gov.br> (Legislação) por "Resolução 08/2016 Regimento Interno". **Atenção:** há projeto de resolução de 2026 mudando o art. 23 (eleição da Mesa Diretora); veja se foi aprovado. |
-| LC nº 93/2003 — Estatuto dos Servidores | 🔎 Portal da Câmara ou da Prefeitura de Cuiabá (Legislação). Busque "Lei Complementar 93/2003 Cuiabá estatuto servidores". |
-| LC nº 235/2011 — Plano de Cargos (com alterações da LC nº 609/2026) | 🔎 O texto da LC 609/2026 (03/07/2026) **não apareceu** nas buscas. Procure no portal da Câmara. O edital confirma que a LC 609 criou parte dos cargos, então leia as atribuições do seu cargo com atenção. |
+| Lei Orgânica do Município de Cuiabá (05/04/1990) | ✅ Texto integral na Base de conhecimento (`lei organiza.doc`). Confira emendas recentes no portal da Câmara. |
+| Regimento Interno (Resolução nº 08, de 15/12/2016) | ✅ Texto integral na Base de conhecimento. **Atenção:** há projeto de resolução de 2026 mudando o art. 23 (eleição da Mesa Diretora). |
+| LC nº 93/2003 — Estatuto dos Servidores | ✅ Texto atualizado na Base de conhecimento (com as alterações das LCs 125, 152, 155, 175, 336, 365). |
+| LC nº 235/2011 — Plano de Cargos | 🔎 O arquivo da base traz **só a LC 609/2026** (recorte do Diário Oficial: cargo de Analista TI, 5 vagas, 37 atribuições). Falta o texto integral da LC 235 (classes, referências, percentuais). |
 | Edital 001/2026-CMC (conteúdo programático oficial) | ✅ <https://arquivos.qconcursos.com/regulamento/arquivo/102705/camara-de-cuiaba-mt-2026-edital-n-1-edital.pdf> |
+
+Divergências entre normas (datas da sessão legislativa e da eleição da Mesa na Lei Orgânica x Regimento) estão na tabela da Parte D da apostila 08.
 
 Como estudar as leis: baixe o PDF, suba no NotebookLM e peça "liste os artigos sobre X e as pegadinhas mais comuns em prova". Depois confira cada resposta no artigo.
 

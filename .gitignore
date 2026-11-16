@@ -6,3 +6,6 @@ Thumbs.db
 
 # Pastas locais do Claude Code
 .claude/
+
+# Material de apoio (livros, PDFs e leis): só local, não publicar no repositório público
+Base de conhecimento/

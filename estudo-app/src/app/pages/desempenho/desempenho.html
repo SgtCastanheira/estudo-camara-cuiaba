@@ -1,0 +1,85 @@
+<div class="pagina larga">
+  <h1 class="titulo-pagina">Desempenho</h1>
+  <p class="subtitulo">Seu avanço por disciplina e o resultado dos simulados. Tudo fica salvo só neste aparelho.</p>
+
+  <section class="estats">
+    <div class="estat"><span class="valor">{{ progresso.sequencia() }}</span><span class="rotulo">dias seguidos</span></div>
+    <div class="estat"><span class="valor">{{ progresso.diasDeEstudo() }}</span><span class="rotulo">dias de estudo no total</span></div>
+    <div class="estat"><span class="valor">{{ feitos().length }}</span><span class="rotulo">simulados feitos</span></div>
+    <div class="estat">
+      <span class="valor">{{ mediaNota() ?? '–' }}</span>
+      <span class="rotulo">nota média projetada (de 100)</span>
+    </div>
+  </section>
+
+  @if (fracas().length) {
+    <section class="fracas">
+      <h2><mat-icon>priority_high</mat-icon> Pontos para reforçar</h2>
+      <p>Disciplinas com menor taxa de acerto nos seus simulados:</p>
+      <ul>
+        @for (f of fracas(); track f.id) {
+          <li>
+            <a [routerLink]="['/disciplina', f.id]">{{ f.nomeCurto }}</a>
+            <span>{{ f.taxa }}% de acerto ({{ f.acertos }} de {{ f.total }})</span>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
+  <h2 class="secao">Por disciplina</h2>
+  <div class="tabela-rolavel">
+    <table class="desempenho">
+      <thead>
+        <tr>
+          <th>Disciplina</th>
+          <th>Teoria</th>
+          <th>Revisão</th>
+          <th>Questões</th>
+          <th>Simulados</th>
+          <th>Melhor no quiz</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (l of linhas(); track l.id) {
+          <tr>
+            <th scope="row">
+              <a [routerLink]="['/disciplina', l.id]">{{ l.nomeCurto }}</a>
+              <small>{{ l.aulas }} aulas</small>
+            </th>
+            <td><mat-progress-bar mode="determinate" [value]="l.teoria" [attr.aria-label]="'Teoria ' + l.teoria + '%'" /><span>{{ l.teoria }}%</span></td>
+            <td><mat-progress-bar mode="determinate" [value]="l.revisao" [attr.aria-label]="'Revisão ' + l.revisao + '%'" /><span>{{ l.revisao }}%</span></td>
+            <td><mat-progress-bar mode="determinate" [value]="l.questoes" [attr.aria-label]="'Questões ' + l.questoes + '%'" /><span>{{ l.questoes }}%</span></td>
+            <td>
+              @if (l.taxa !== null) {
+                <mat-progress-bar mode="determinate" [value]="l.taxa" [attr.aria-label]="'Acerto ' + l.taxa + '%'" />
+                <span>{{ l.taxa }}% ({{ l.acertos }}/{{ l.total }})</span>
+              } @else {
+                <span class="vazio">sem dados</span>
+              }
+            </td>
+            <td>{{ l.quiz ?? '–' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="secao">Histórico de simulados</h2>
+  @if (feitos().length) {
+    <p class="dica">Melhor nota projetada: <strong>{{ melhorNota() ?? '–' }}</strong> de 100.</p>
+    <ul class="historico">
+      @for (s of feitos(); track s.data) {
+        <li>
+          <span class="quando">{{ s.data | date: 'dd/MM/yyyy HH:mm' }}</span>
+          <span><strong>{{ s.acertos }}/{{ s.total }}</strong> acertos</span>
+          <span>nota projetada: <strong>{{ s.nota ?? '–' }}</strong></span>
+          <span>{{ minutos(s.segundos) }}</span>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="dica">Você ainda não fez nenhum simulado.</p>
+  }
+  <a mat-flat-button routerLink="/simulado"><mat-icon>timer</mat-icon> Fazer um simulado</a>
+</div>

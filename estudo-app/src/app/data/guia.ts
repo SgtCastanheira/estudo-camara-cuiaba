@@ -151,7 +151,7 @@ export const MATERIAIS: GrupoMaterial[] = [
       {
         titulo: 'Lei Orgânica do Município de Cuiabá (1990)',
         descricao:
-          'Não achei o texto integral. Atenção: o PDF da pasta de emendas no portal é só uma proposta de emenda ao art. 8º, não a lei.',
+          'Texto integral na pasta Base de conhecimento do projeto (e resumido na apostila 08). Confira emendas recentes no portal; o PDF da pasta PELOM é só proposta de emenda ao art. 8º.',
         links: [
           {
             rotulo: 'Portal legislativo da Câmara',
@@ -164,7 +164,7 @@ export const MATERIAIS: GrupoMaterial[] = [
       {
         titulo: 'Regimento Interno (Resolução nº 08, de 15/12/2016)',
         descricao:
-          'Texto integral não encontrado. Há um projeto de resolução de 2026 mudando o art. 23 (eleição da Mesa Diretora): veja se foi aprovado.',
+          'Texto integral na pasta Base de conhecimento (resumido na apostila 08). Há um projeto de resolução de 2026 mudando o art. 23 (eleição da Mesa Diretora): veja se foi aprovado.',
         links: [
           {
             rotulo: 'Portal legislativo da Câmara',
@@ -176,13 +176,13 @@ export const MATERIAIS: GrupoMaterial[] = [
       },
       {
         titulo: 'LC nº 93/2003 — Estatuto dos Servidores',
-        descricao: 'Procure no portal da Câmara ou da Prefeitura de Cuiabá.',
+        descricao: 'Texto atualizado (com as alterações das LCs 125, 152, 155, 175, 336 e 365) na pasta Base de conhecimento; resumido na apostila 08.',
         links: [busca('Buscar o texto', 'Lei Complementar 93/2003 Cuiabá estatuto dos servidores')],
       },
       {
         titulo: 'LC nº 235/2011 e LC nº 609/2026 — Plano de Cargos',
         descricao:
-          'A LC 609/2026 (03/07/2026) criou parte dos cargos e alterou a LC 235. O texto dela não apareceu nas buscas.',
+          'A LC 609/2026 (03/07/2026) está na pasta Base de conhecimento (Analista TI: 5 vagas, 37 atribuições). O texto integral da LC 235/2011 ainda não: confira classes e percentuais nele.',
         links: [
           busca('Buscar a LC 235', 'Lei Complementar 235/2011 Cuiabá plano de cargos Câmara'),
           busca('Buscar a LC 609', 'Lei Complementar 609/2026 Cuiabá Câmara Municipal'),

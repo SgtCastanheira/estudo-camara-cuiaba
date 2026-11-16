@@ -1,0 +1,203 @@
+<div class="pagina larga">
+  @switch (fase()) {
+    <!-- ------------------------------------------------------------ configuração -->
+    @case ('config') {
+      <h1 class="titulo-pagina">Simulados</h1>
+      <p class="subtitulo">
+        Monte um simulado com questões das apostilas, na proporção da prova. O gabarito comentado só
+        aparece no final, como numa prova de verdade.
+      </p>
+
+      <mat-card appearance="outlined" class="bloco">
+        <mat-card-header><mat-card-title>1. Escolha as disciplinas</mat-card-title></mat-card-header>
+        <mat-card-content>
+          <div class="atalhos-chips">
+            <button mat-stroked-button (click)="selecionarTodas()">Todas</button>
+            <button mat-stroked-button (click)="selecionarArea('basicos')">Só básicos</button>
+            <button mat-stroked-button (click)="selecionarArea('gerais')">Só gerais</button>
+            <button mat-stroked-button (click)="selecionarArea('especificos')">Só específicos</button>
+          </div>
+          <mat-chip-set class="chips" aria-label="Disciplinas do simulado">
+            @for (d of disciplinas; track d.id) {
+              <mat-chip-option
+                [selected]="selecionadas().includes(d.id)"
+                (selectionChange)="alternarDisciplina(d.id)"
+              >
+                {{ d.nomeCurto }} · {{ d.questoes }}
+              </mat-chip-option>
+            }
+          </mat-chip-set>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card appearance="outlined" class="bloco">
+        <mat-card-header><mat-card-title>2. Quantas questões?</mat-card-title></mat-card-header>
+        <mat-card-content>
+          <mat-button-toggle-group
+            [value]="quantidade()"
+            (change)="quantidade.set($event.value)"
+            aria-label="Quantidade de questões"
+          >
+            @for (n of opcoesQuantidade; track n) {
+              <mat-button-toggle [value]="n">{{ n }}</mat-button-toggle>
+            }
+            <mat-button-toggle [value]="500">Todas</mat-button-toggle>
+          </mat-button-toggle-group>
+          <p class="dica">
+            {{ disponiveis() }} questões disponíveis nas disciplinas escolhidas. As questões são
+            sorteadas na proporção de cada disciplina na prova.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button [disabled]="!disponiveis()" (click)="iniciar()">
+            <mat-icon>play_arrow</mat-icon>
+            Iniciar simulado
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    }
+
+    <!-- ------------------------------------------------------------ prova -->
+    @case ('prova') {
+      @if (atual(); as q) {
+        <div class="barra-prova">
+          <span class="cronometro"><mat-icon>timer</mat-icon> {{ tempo() }}</span>
+          <span>{{ respondidas() }} de {{ questoes().length }} respondidas</span>
+          <button mat-flat-button class="finalizar" (click)="finalizar()">Finalizar</button>
+        </div>
+        <mat-progress-bar mode="determinate" [value]="(respondidas() / questoes().length) * 100" aria-label="Questões respondidas" />
+
+        <nav class="navegador" aria-label="Navegador de questões">
+          @for (x of questoes(); track x.id + x.disc; let i = $index) {
+            <button
+              type="button"
+              class="num"
+              [class.atual]="i === indice()"
+              [class.feita]="respostas()[i] !== null"
+              (click)="ir(i)"
+              [attr.aria-label]="'Questão ' + (i + 1) + (respostas()[i] !== null ? ', respondida' : ', em branco')"
+              [attr.aria-current]="i === indice() ? 'step' : null"
+            >{{ i + 1 }}</button>
+          }
+        </nav>
+
+        <mat-card class="questao" appearance="outlined">
+          <mat-card-content>
+            <p class="origem etiqueta">Questão {{ indice() + 1 }} · {{ nomeDisciplina(q.disc) }}</p>
+            <div class="enunciado" id="enunciado-sim">
+              <app-markdown [texto]="q.enunciado" [inline]="true" />
+            </div>
+            <mat-radio-group
+              class="opcoes"
+              aria-labelledby="enunciado-sim"
+              [value]="respostas()[indice()]"
+              (change)="escolher($event)"
+            >
+              @for (alt of q.alternativas; track $index) {
+                <div class="opcao" [class.marcada]="respostas()[indice()] === $index">
+                  <mat-radio-button [value]="$index">
+                    <span class="letra">{{ letras[$index] }})</span>
+                    <app-markdown [texto]="alt" [inline]="true" />
+                  </mat-radio-button>
+                </div>
+              }
+            </mat-radio-group>
+          </mat-card-content>
+          <mat-card-actions class="acoes">
+            <button mat-stroked-button [disabled]="indice() === 0" (click)="ir(indice() - 1)">
+              <mat-icon>arrow_back</mat-icon> Anterior
+            </button>
+            @if (indice() + 1 < questoes().length) {
+              <button mat-flat-button (click)="ir(indice() + 1)">
+                Próxima <mat-icon iconPositionEnd>arrow_forward</mat-icon>
+              </button>
+            } @else {
+              <button mat-flat-button (click)="finalizar()">Finalizar simulado</button>
+            }
+          </mat-card-actions>
+        </mat-card>
+      }
+    }
+
+    <!-- ------------------------------------------------------------ resultado -->
+    @case ('resultado') {
+      @if (resultado(); as r) {
+        <mat-card class="resultado" appearance="outlined">
+          <mat-card-content>
+            <p class="etiqueta">Resultado do simulado · {{ tempo() }}</p>
+            <p class="placar"><strong>{{ r.acertos }}</strong> / {{ r.total }}</p>
+            @if (r.nota !== null) {
+              <p class="nota-proj">Nota projetada na prova: <strong>{{ r.nota }}</strong> de 100</p>
+              <p class="situacao" [class.ok]="r.aprovado" [class.ruim]="!r.aprovado">
+                <mat-icon>{{ r.aprovado ? 'check_circle' : 'cancel' }}</mat-icon>
+                @if (r.aprovado) {
+                  Passaria da nota mínima (40) sem zerar nenhuma área.
+                } @else {
+                  Não passaria: é preciso 40 pontos e acertar ao menos uma questão em cada área.
+                }
+              </p>
+            } @else {
+              <p class="dica">
+                Para projetar a nota de 100 pontos, o simulado precisa ter questões das três áreas
+                (básicos, gerais e específicos).
+              </p>
+            }
+          </mat-card-content>
+          <mat-card-actions class="acoes">
+            <button mat-flat-button (click)="novo()"><mat-icon>replay</mat-icon> Novo simulado</button>
+            <a mat-stroked-button routerLink="/desempenho"><mat-icon>insights</mat-icon> Ver desempenho</a>
+          </mat-card-actions>
+        </mat-card>
+
+        <h2 class="secao">Por área</h2>
+        <div class="areas">
+          @for (a of areasResultado(); track a.id) {
+            <div class="estat">
+              <span class="valor">{{ a.total ? a.acertos + '/' + a.total : '–' }}</span>
+              <span class="rotulo">{{ a.nome }}</span>
+            </div>
+          }
+        </div>
+
+        <h2 class="secao">Por disciplina</h2>
+        @for (l of linhas(); track l.id) {
+          <div class="disc-linha">
+            <span class="disc-nome">
+              <a [routerLink]="['/disciplina', l.id]">{{ l.nome }}</a>
+              <span>{{ l.acertos }} de {{ l.total }} · {{ l.taxa }}%</span>
+            </span>
+            <mat-progress-bar mode="determinate" [value]="l.taxa" [attr.aria-label]="l.nome + ': ' + l.taxa + '% de acerto'" />
+          </div>
+        }
+
+        <h2 class="secao">Gabarito comentado</h2>
+        @if (erradas().length) {
+          <p class="dica">Estas são as {{ erradas().length }} questões que você errou ou deixou em branco.</p>
+          <mat-accordion displayMode="flat">
+            @for (e of erradas(); track e.q.id + e.q.disc) {
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="revisao-titulo">
+                    <span class="etiqueta">Q{{ e.i + 1 }} · {{ nomeDisciplina(e.q.disc) }}</span>
+                    <app-markdown [texto]="e.q.enunciado" [inline]="true" />
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p class="sua">
+                  <strong>Sua resposta:</strong>
+                  @if (e.resposta === null) { em branco } @else { {{ letras[e.resposta] }}) }
+                </p>
+                <p class="certa">
+                  <strong>Resposta certa:</strong> {{ letras[e.q.correta] }})
+                  <app-markdown [texto]="e.q.alternativas[e.q.correta]" [inline]="true" />
+                </p>
+                <app-markdown [texto]="e.q.comentario" />
+              </mat-expansion-panel>
+            }
+          </mat-accordion>
+        } @else {
+          <p class="dica">Você acertou tudo. Nada a revisar!</p>
+        }
+      }
+    }
+  }
+</div>

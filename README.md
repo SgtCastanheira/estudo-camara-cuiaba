@@ -11,6 +11,7 @@ banca Instituto Selecon, prova em 13/12/2026).
 | Pasta / arquivo | O quê |
 |---|---|
 | `2° parte/` | As apostilas em Markdown (disciplinas 01 a 09): tópicos, fixação, questões e gabarito. **É a fonte do conteúdo do app.** |
+| `Base de conhecimento/` | **Só local (não vai para o GitHub):** leis municipais, Leis 14.133/13.709/12.527 e livros/apostilas de TI usados para conferir e ampliar as apostilas. |
 | `estudo-app/` | O app (Angular + Angular Material, PWA). Veja o [README do app](estudo-app/README.md). |
 | `PROMPTS-ESTUDO.md`, `LEIS-README.md` | Prompts de estudo e orientação sobre as leis municipais. |
 | `01-portugues.md` | Versão antiga da apostila de Português (a atual está em `2° parte/`). |

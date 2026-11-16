@@ -95,3 +95,65 @@ mat-action-row {
   flex-wrap: wrap;
   gap: 8px;
 }
+
+.curso-topo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 20px 20px 16px;
+  margin-bottom: 12px;
+
+  h1 { font: var(--mat-sys-headline-medium); margin: 2px 0 10px; font-weight: 500; position: relative; }
+  .etiqueta { margin: 0; opacity: 0.9; position: relative; }
+
+  mat-progress-bar {
+    --mat-progress-bar-active-indicator-color: #fff;
+    --mat-progress-bar-track-color: rgba(255, 255, 255, 0.3);
+  }
+}
+.curso-fundo {
+  position: absolute;
+  right: -10px;
+  top: -16px;
+  width: 150px;
+  height: 150px;
+  font-size: 150px;
+  opacity: 0.18;
+}
+.curso-dados {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0 0 14px;
+  padding: 0;
+  position: relative;
+  li { display: flex; align-items: center; gap: 4px; font: var(--mat-sys-label-large); }
+  mat-icon { width: 18px; height: 18px; font-size: 18px; }
+}
+.curso-progresso {
+  position: relative;
+  span { display: block; font: var(--mat-sys-label-large); margin-bottom: 6px; }
+}
+
+.aula-titulo { display: flex; flex-direction: column; min-width: 0; }
+.aula-num { color: var(--mat-sys-primary); }
+.pendente { color: var(--mat-sys-outline); }
+
+.etapas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  margin-top: 8px;
+}
+
+.resumo-aula {
+  background: var(--mat-sys-surface-container);
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  h3 { font: var(--mat-sys-title-small); margin: 0 0 6px; }
+  h3 .etiqueta { display: block; color: var(--mat-sys-primary); }
+  ol { margin: 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+}

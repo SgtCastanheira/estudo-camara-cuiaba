@@ -66,6 +66,14 @@ export class App {
   }));
 
   protected readonly totalDisciplinas = DISCIPLINAS.length;
+  protected readonly navegacao = [
+    { rota: '/', nome: 'Painel', icone: 'dashboard' },
+    { rota: '/edital', nome: 'Edital verticalizado', icone: 'checklist' },
+    { rota: '/cronograma', nome: 'Cronograma', icone: 'event' },
+    { rota: '/simulado', nome: 'Simulados', icone: 'timer' },
+    { rota: '/desempenho', nome: 'Desempenho', icone: 'insights' },
+    { rota: '/guia', nome: 'Guia do concurso', icone: 'explore' },
+  ];
   protected readonly temas: { id: Tema; nome: string; icone: string }[] = [
     { id: 'auto', nome: 'Automático (do sistema)', icone: ICONE_DO_TEMA.auto },
     { id: 'claro', nome: 'Claro', icone: ICONE_DO_TEMA.claro },

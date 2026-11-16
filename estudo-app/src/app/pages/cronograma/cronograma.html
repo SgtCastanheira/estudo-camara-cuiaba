@@ -1,0 +1,83 @@
+<div class="pagina larga">
+  <h1 class="titulo-pagina">Cronograma de estudos</h1>
+  <p class="subtitulo">
+    Ciclo de estudos até a prova ({{ dataProva | date: 'dd/MM/yyyy' }}): TI e Legislação aparecem
+    mais vezes, os domingos são de revisão e os últimos dias são de simulado e descanso.
+  </p>
+
+  <section class="resumo">
+    <div class="estat"><span class="valor">{{ feitas() }}/{{ aulasPlano() }}</span><span class="rotulo">aulas do plano concluídas</span></div>
+    <div class="estat"><span class="valor">{{ porDia() }}</span><span class="rotulo">aulas por dia de estudo</span></div>
+    <div class="estat" [class.alerta]="atrasadas() > 0">
+      <span class="valor">{{ atrasadas() }}</span>
+      <span class="rotulo">{{ atrasadas() ? 'aulas atrasadas' : 'nenhuma aula atrasada' }}</span>
+    </div>
+  </section>
+
+  <div class="acoes">
+    <button mat-stroked-button (click)="replanejar()">
+      <mat-icon>refresh</mat-icon>
+      Replanejar a partir de hoje
+    </button>
+    <span class="dica">O plano começou em {{ plano().inicio | date: 'dd/MM/yyyy' }}.</span>
+  </div>
+
+  <mat-accordion multi>
+    @for (s of semanas(); track s.numero) {
+      <mat-expansion-panel [expanded]="s.atual">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Semana {{ s.numero }}
+            <small>{{ s.inicio | date: 'dd/MM' }} a {{ s.fim | date: 'dd/MM' }}</small>
+          </mat-panel-title>
+          @if (s.atual) { <span class="selo-atual">Esta semana</span> }
+        </mat-expansion-panel-header>
+
+        @for (d of s.dias; track d.data) {
+          <section class="dia" [class.hoje]="eHoje(d)" [class.passado]="passou(d)">
+            <header class="dia-topo">
+              <span class="data">
+                <strong>{{ d.data | date: 'dd' }}</strong>
+                <span>{{ d.data | date: 'EEE' }}</span>
+              </span>
+              <span class="dia-info">
+                <span class="tipo etiqueta" [attr.data-tipo]="d.tipo">{{ rotuloDia[d.tipo] }}</span>
+                <strong>{{ d.titulo }}</strong>
+                @if (eHoje(d)) { <em>hoje</em> }
+              </span>
+            </header>
+
+            @if (d.descricao) { <p class="descricao">{{ d.descricao }}</p> }
+
+            @for (a of d.aulas; track a.chave) {
+              <div class="aula">
+                <mat-checkbox
+                  [checked]="progresso.estudado(a.disciplina, a.topico)"
+                  (change)="progresso.alternarEstudado(a.disciplina, a.topico)"
+                  [aria-label]="'Marcar como estudada: ' + a.titulo"
+                />
+                <a [routerLink]="['/disciplina', a.disciplina]" [queryParams]="{ aula: a.topico }">
+                  <span class="disc">{{ a.disciplinaNome }}</span>
+                  {{ a.titulo }}
+                </a>
+              </div>
+            }
+
+            @if (d.treinar.length || d.tipo === 'simulado') {
+              <div class="treinar">
+                @if (d.tipo === 'simulado') {
+                  <a mat-stroked-button routerLink="/simulado"><mat-icon>timer</mat-icon> Fazer simulado</a>
+                }
+                @for (t of d.treinar; track t) {
+                  <a mat-stroked-button [routerLink]="['/disciplina', t]" [queryParams]="{ aba: 2 }">
+                    <mat-icon>quiz</mat-icon> Questões de {{ nomeDisciplina(t) }}
+                  </a>
+                }
+              </div>
+            }
+          </section>
+        }
+      </mat-expansion-panel>
+    }
+  </mat-accordion>
+</div>

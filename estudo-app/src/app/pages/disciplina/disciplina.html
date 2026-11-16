@@ -1,13 +1,26 @@
 @if (disciplina(); as d) {
   @if (conteudo(); as c) {
     <div class="pagina">
-      <h1 class="titulo-pagina">{{ d.nome }}</h1>
-      <p class="subtitulo">
-        Edital 001/2026-CMC · Anexo V · banca Instituto Selecon
-        @if (rotuloPeso(); as peso) { · peso {{ peso }} }
-      </p>
+      <header class="curso-topo" [attr.data-area]="d.area">
+        <mat-icon class="curso-fundo">{{ d.icone }}</mat-icon>
+        <p class="etiqueta">Disciplina {{ d.numero }} · banca Instituto Selecon</p>
+        <h1>{{ d.nome }}</h1>
+        <ul class="curso-dados">
+          <li><mat-icon>menu_book</mat-icon> {{ c.topicos.length }} aulas</li>
+          <li><mat-icon>quiz</mat-icon> {{ c.questoes.length }} questões</li>
+          <li><mat-icon>schedule</mat-icon> ≈ {{ minutos() }} min de leitura</li>
+          @if (rotuloPeso(); as peso) {
+            <li><mat-icon>flag</mat-icon> peso {{ peso }}</li>
+          }
+        </ul>
+        <div class="curso-progresso">
+          <span>{{ percentual() }}% concluído · {{ estudados() }} de {{ c.topicos.length }} aulas</span>
+          <mat-progress-bar mode="determinate" [value]="percentual()" aria-label="Progresso no curso" />
+        </div>
+      </header>
 
       <mat-tab-group
+        [selectedIndex]="aba()"
         mat-stretch-tabs="true"
         animationDuration="0ms"
         [preserveContent]="true"
@@ -16,7 +29,7 @@
         <mat-tab>
           <ng-template mat-tab-label>
             <mat-icon class="icone-aba">menu_book</mat-icon>
-            Estudar
+            Aulas
           </ng-template>
 
           <div class="aba">
@@ -33,23 +46,20 @@
               </div>
             }
 
-            <div class="resumo">
-              <div class="resumo-texto">
-                <span>Seu progresso</span>
-                <span>{{ estudados() }} de {{ c.topicos.length }} tópicos estudados</span>
-              </div>
-              <mat-progress-bar mode="determinate" [value]="percentual()" aria-label="Progresso na disciplina" />
-            </div>
-
             <mat-accordion displayMode="flat">
               @for (t of c.topicos; track t.id) {
-                <mat-expansion-panel>
+                <mat-expansion-panel [expanded]="t.id === aula()">
                   <mat-expansion-panel-header>
                     <mat-panel-title>
                       @if (progresso.estudado(d.id, t.id)) {
                         <mat-icon class="ok" aria-label="Estudado">check_circle</mat-icon>
+                      } @else {
+                        <mat-icon class="pendente" aria-hidden="true">radio_button_unchecked</mat-icon>
                       }
-                      <span>{{ t.titulo }}</span>
+                      <span class="aula-titulo">
+                        <span class="aula-num etiqueta">Aula {{ ($index + 1).toString().padStart(2, '0') }}</span>
+                        {{ limpo(t.titulo) }}
+                      </span>
                       @if (falando(t.id)) {
                         <mat-icon class="falando" aria-label="Lendo este tópico agora">volume_up</mat-icon>
                       }
@@ -72,6 +82,17 @@
                     </aside>
                   }
 
+                  <div class="etapas">
+                    <mat-checkbox
+                      [checked]="progresso.marcado('revisao', d.id, t.id)"
+                      (change)="progresso.alternar('revisao', d.id, t.id)"
+                    >Revisei</mat-checkbox>
+                    <mat-checkbox
+                      [checked]="progresso.marcado('questoes', d.id, t.id)"
+                      (change)="progresso.alternar('questoes', d.id, t.id)"
+                    >Fiz questões</mat-checkbox>
+                  </div>
+
                   <mat-action-row>
                     @if (audio.suportado) {
                       <button mat-stroked-button (click)="ouvir($index)">
@@ -91,6 +112,29 @@
                 </mat-expansion-panel>
               }
             </mat-accordion>
+          </div>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="icone-aba">bolt</mat-icon>
+            Resumo
+          </ng-template>
+
+          <div class="aba">
+            <p class="dica">Os macetes de cada aula num só lugar, para a revisão rápida.</p>
+            @for (r of resumo(); track r.numero) {
+              <section class="resumo-aula">
+                <h3><span class="etiqueta">Aula {{ r.numero.toString().padStart(2, '0') }}</span> {{ r.titulo }}</h3>
+                <ol>
+                  @for (f of r.fixacao; track $index) {
+                    <li><app-markdown [texto]="f" [inline]="true" /></li>
+                  }
+                </ol>
+              </section>
+            } @empty {
+              <p class="dica">Esta disciplina não tem macetes cadastrados.</p>
+            }
           </div>
         </mat-tab>
 

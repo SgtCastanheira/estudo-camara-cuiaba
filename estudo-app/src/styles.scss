@@ -166,3 +166,43 @@ mat-sidenav-content.mat-drawer-content {
   .pagina { padding: 12px; }
   .titulo-pagina { font: var(--mat-sys-headline-small); }
 }
+
+// ---------------------------------------------------------------- marca (visual de plataforma de cursos)
+:root {
+  --marca-azul: #0b2a5b;
+  --marca-azul-2: #14408a;
+  --marca-laranja: #ff8f00;
+}
+
+// Capa colorida das disciplinas, uma cor por área do edital.
+[data-area] {
+  --c1: #1565c0;
+  --c2: #0d3b82;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  color: #fff;
+}
+[data-area='gerais'] { --c1: #00897b; --c2: #00574f; }
+[data-area='especificos'] { --c1: #ef6c00; --c2: #a63f00; }
+
+// Rótulo pequeno em caixa-alta (estilo de plataforma de cursos).
+.etiqueta {
+  font: var(--mat-sys-label-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// Cartão-estatística do painel e do desempenho.
+.estat {
+  background: var(--mat-sys-surface-container);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+
+  .valor { font: var(--mat-sys-headline-small); font-weight: 700; }
+  .rotulo { font: var(--mat-sys-label-medium); color: var(--mat-sys-on-surface-variant); }
+}
+
+.pagina.larga { max-width: 1080px; }

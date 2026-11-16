@@ -40,3 +40,8 @@ export function disciplinaPorId(id: string): Disciplina | undefined {
 export function disciplinasDaArea(area: Area): Disciplina[] {
   return DISCIPLINAS.filter((d) => d.area === area);
 }
+
+/** Tira a numeração do início do título do tópico ("3. Redes" vira "Redes"). A aula já é numerada na tela. */
+export function tituloLimpo(titulo: string): string {
+  return titulo.replace(/^\d+(?:[–-]\d+)?\.\s*/, '');
+}

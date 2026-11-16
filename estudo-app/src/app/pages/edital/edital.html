@@ -1,0 +1,65 @@
+<div class="pagina larga">
+  <h1 class="titulo-pagina">Edital verticalizado</h1>
+  <p class="subtitulo">
+    Todos os tópicos do edital organizados por disciplina. Marque três etapas em cada um: ler a
+    teoria, revisar e treinar com questões.
+  </p>
+
+  <section class="resumo" aria-label="Progresso por etapa">
+    @for (r of resumo(); track r.id) {
+      <div class="estat">
+        <span class="valor">{{ r.percentual }}%</span>
+        <span class="rotulo">{{ r.nome }} · {{ r.feitos }} de {{ total }}</span>
+        <mat-progress-bar mode="determinate" [value]="r.percentual" [attr.aria-label]="'Progresso em ' + r.nome" />
+      </div>
+    }
+  </section>
+
+  <mat-slide-toggle class="filtro" [checked]="soPendentes()" (change)="soPendentes.set($event.checked)">
+    Mostrar só o que ainda falta
+  </mat-slide-toggle>
+
+  @for (area of areas; track area.id) {
+    <h2 class="area-titulo etiqueta">{{ area.nome }}</h2>
+    <mat-accordion multi>
+      @for (d of area.disciplinas; track d.id) {
+        <mat-expansion-panel [expanded]="d.id === 'ti'">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="mini-capa" [attr.data-area]="d.area"><mat-icon>{{ d.icone }}</mat-icon></span>
+              <span class="disc-nome">
+                {{ d.nomeCurto }}
+                <small>{{ completos(d) }} de {{ d.topicos.length }} tópicos completos</small>
+              </span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="cabecalho-linhas" aria-hidden="true">
+            <span>Tópico</span>
+            <span class="colunas">
+              @for (e of etapas; track e.id) { <span>{{ e.nome }}</span> }
+            </span>
+          </div>
+          @for (t of topicosVisiveis(d); track t.id) {
+            <div class="linha">
+              <a class="topico" [routerLink]="['/disciplina', d.id]" [queryParams]="{ aula: t.id }">{{ t.titulo }}</a>
+              <span class="colunas">
+                @for (e of etapas; track e.id) {
+                  <mat-checkbox
+                    [checked]="progresso.marcado(e.id, d.id, t.id)"
+                    (change)="progresso.alternar(e.id, d.id, t.id)"
+                    [aria-label]="e.nome + ': ' + t.titulo"
+                  >
+                    <span class="rotulo-etapa">{{ e.nome }}</span>
+                  </mat-checkbox>
+                }
+              </span>
+            </div>
+          } @empty {
+            <p class="vazio">Tudo concluído nesta disciplina.</p>
+          }
+        </mat-expansion-panel>
+      }
+    </mat-accordion>
+  }
+</div>

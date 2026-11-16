@@ -1109,35 +1109,60 @@ export const CONTEUDO_GERADO: Record<string, ConteudoDisciplina> = {
   },
   "legislacao": {
     "peso": "alto",
-    "intro": "Cobrada **na letra da lei** (artigos, prazos, números). Este arquivo cobre o **Estatuto (LC 93/2003)** e o **Plano de Cargos (LC 235/2011 + 609/2026)**, com artigos reais. A **Lei Orgânica** e o **Regimento Interno (Res. 08/2016)** devem ser estudados no texto oficial (ver abaixo).",
+    "intro": "Cobrada **na letra da lei** (artigos, prazos, números). Esta apostila foi refeita **a partir dos textos oficiais** da pasta *Base de conhecimento*: **Estatuto (LC 93/2003, texto atualizado)**, **Lei Orgânica do Município**, **Regimento Interno (Res. 08/2016)** e **LC 609/2026** (que criou o cargo de Analista Legislativo – TI).\n\n**Duas ressalvas que valem ponto:**\n\n1. O arquivo da LC 235/2011 que temos traz **só a LC 609/2026** (o recorte do Diário Oficial). Os números do Plano de Cargos que **não** vêm da LC 609 (classes, referências, percentuais) ficaram marcados como *não conferidos*: confirme no texto integral.\n2. O texto da **Lei Orgânica** e o do **Regimento** divergem em datas (sessão legislativa, eleição da Mesa). O Regimento é de 2016 e a Lei Orgânica é de 1990 com emendas; veja a tabela na Parte D e responda **conforme a norma citada no enunciado**.",
     "topicos": [
       {
         "id": "parte-a-estatuto-dos-servidores-lc-93-2003",
         "titulo": "Parte A — Estatuto dos Servidores (LC 93/2003)",
-        "conteudo": "### Provimento e requisitos\n- **Formas de provimento (Art. 14):** nomeação, promoção, readaptação, reversão, aproveitamento, reintegração e recondução.\n- **Requisitos (Art. 13):** nacionalidade, direitos políticos, quitação (eleitoral/militar/fiscal), escolaridade, maioridade civil, aptidão física e mental, idoneidade moral.\n- **Homologação do concurso (Art. 16 §7º):** em até **90 dias** do fim das inscrições, prorrogável. **Reserva PcD (Art. 16 §9º):** até **10%**.\n\n### Posse e exercício\n- **Posse (Art. 24 §2º):** prazo de **30 dias** da publicação do provimento, prorrogável 1x por igual período. Não tomando posse no prazo, o provimento fica **sem efeito** (§6º).\n- **Exercício (Art. 26 §1º):** prazo de **5 dias** da posse, sob pena de **exoneração**.\n- **Jornada (Art. 27):** máx. **40h semanais / 8h diárias** — mas o §2º ressalva carreiras com lei específica (o Analista é **30h**, pela LC 235).\n\n### Estágio e vacância\n- **Estágio probatório (Art. 28):** **3 anos**; avaliado por comissão de **3 servidores estáveis** (Art. 29).\n- **Vacância (Art. 40):** exoneração, demissão, readaptação, aposentadoria, posse em cargo inacumulável, falecimento.\n\n### Remuneração e direitos\n- **Efetivo em comissão (Art. 51):** opta pelo subsídio do comissionado ou o do efetivo **+70%** do comissionado.\n- **Débito com o erário ao sair (Art. 54):** **60 dias** para quitar.\n- **Direitos especiais (Art. 62):** 13º, férias com 1/3, salário-família, adicional por serviço extraordinário e noturno.\n- **13º (Art. 68):** 1/12 por mês; pago até **20/12**.\n- **Férias (Art. 69):** **30 dias** + 1/3; 1º período após **12 meses**.\n- **Dia do Servidor (Art. 3º):** **28 de outubro**.",
+        "conteudo": "### Conceitos e provimento\n- **Quem se aplica:** servidores da administração direta, autárquica e fundacional (Art. 1º). Ao **Legislativo**, aplicam-se \"no que couber\" todas as disposições (Art. 190).\n- **Prazos** contam-se em **dias corridos**, excluindo o dia do começo e incluindo o do vencimento; se vencer em dia sem expediente, vai para o primeiro dia útil (Art. 4º). **Dia do Servidor:** feriado municipal em **28 de outubro** (Art. 3º).\n- **Requisitos (Art. 13):** nacionalidade brasileira (ou estrangeiro na forma da lei), direitos políticos, quitação (militar, eleitoral e fisco municipal), escolaridade, **maioridade civil**, aptidão física e mental, idoneidade moral.\n- **Formas de provimento (Art. 14) — 7:** nomeação, promoção, readaptação, reversão, aproveitamento, reintegração e recondução.\n- **Concurso (Art. 16):** de provas ou provas e títulos. **Homologação** em até **90 dias** do fim das inscrições, prorrogável por igual período (§7º). Não abre novo concurso enquanto houver aprovado com prazo válido (§8º). **Reserva PcD: até 10%** (§9º). O aprovado não tem direito absoluto à nomeação, mas a **ordem de classificação** deve ser respeitada (§6º).\n- **Nomeação** no Legislativo é feita pelo **Presidente da Câmara** (Art. 186). Cargos em comissão: livre nomeação e exoneração pelo Presidente (Art. 185).\n\n### Posse e exercício\n- **Posse (Art. 24):** assinatura do termo; só há posse em cargo provido por **nomeação** (§1º). Prazo de **30 dias** da publicação, prorrogável **uma vez** por igual período (§2º). Sem posse no prazo, o ato de provimento fica **sem efeito** (§6º). Pode ser por procuração específica (§4º). Na posse: **declaração de bens** e de não acumulação (§5º). Exige **inspeção médica oficial** (Art. 25).\n- **Competência para dar posse (Art. 23):** o **Presidente da Câmara** aos ocupantes de cargos de confiança e efetivos do Legislativo.\n- **Exercício (Art. 26 §1º):** **5 dias** da posse, **sob pena de exoneração**, prorrogável por igual período (§2º).\n- **Jornada (Art. 27):** máximo **40h semanais e 8h diárias**; o §2º ressalva carreiras com lei específica. O **Legislativo pode fixar jornada menor por Resolução** (Art. 187).\n\n### Estágio probatório e estabilidade\n- **Estágio probatório (Art. 28):** **3 anos**, avaliando idoneidade, aptidão, disciplina, assiduidade, pontualidade, eficiência, iniciativa, produtividade, responsabilidade e dedicação.\n- **Comissão de avaliação (Art. 29):** mínimo de **3 servidores estáveis**, sob fiscalização da Corregedoria-Geral. Garante contraditório e ampla defesa. **Não aprovado = exonerado** (§3º).\n- Estágio **suspenso** quando cedido a outro órgão (Art. 30) e em certas licenças (Art. 31).\n\n### Formas de provimento em detalhe\n- **Readaptação (Art. 32):** cargo compatível com limitação física/mental; incapaz = aposentado.\n- **Reversão (Art. 33):** retorno do aposentado **por invalidez**; **não reverte quem tem 70 anos ou mais** (§4º).\n- **Reintegração (Art. 34):** do servidor **estável**, quando a demissão é invalidada (decisão administrativa ou judicial).\n- **Recondução (Art. 35):** retorno ao cargo anterior por **inabilitação em estágio probatório** ou reintegração do antigo ocupante.\n- **Aproveitamento (Art. 36–37):** retorno do servidor em disponibilidade. **Redistribuição (Art. 38):** deslocamento do cargo para outro órgão do mesmo Poder. **Substituição (Art. 39):** direito à retribuição se o afastamento do titular passar de **30 dias**.\n- **Vacância (Art. 40) — 6:** exoneração, demissão, readaptação, aposentadoria, posse em outro cargo inacumulável, falecimento.\n\n### Remuneração\n- **Subsídio:** parcela única, vedado acréscimo de gratificação, adicional, abono etc. (Art. 44 e parágrafo único). **Revisão geral anual:** data-base em **abril**, pelo **INPC/IBGE** (Art. 46, redação da LC 365/2014); efeitos financeiros em **maio**.\n- **Efetivo em comissão (Art. 51):** opta entre a remuneração do comissionado **ou** a do efetivo **+ 70%** da do comissionado.\n- **Descontos (Art. 52):** só por imposição legal, ordem judicial ou autorização pessoal. **Reposição ao erário (Art. 53):** comunicada previamente, **30 dias**; parcelas de **até 10%** da remuneração. **Débito ao sair (Art. 54):** **60 dias**; depois, dívida ativa.\n- **Remuneração não pode ser penhorada**, salvo pensão alimentícia (Art. 55).\n- **Indenizações (Art. 56):** **diárias** e **transporte**; não têm natureza salarial. Diária devolvida em **5 dias** se não viajar (Art. 59). Indenização de transporte para quem ganha **até 2 salários mínimos** (Art. 61).\n\n### Direitos especiais (Art. 62)\n- **Direitos especiais:** 13ª remuneração, férias + 1/3, salário-família, serviço extraordinário e serviço noturno. **Concessões:** bolsa de estudo e incentivos administrativos.\n- **13º (Art. 68):** 1/12 por mês, calculado pela **média aritmética** das remunerações do ano; **fração superior a 14 dias = mês inteiro**; pago **até 20 de dezembro**.\n- **Férias (Art. 69):** direito **após 12 meses** de exercício; **30 dias** se tiver até 5 faltas injustificadas no período; **24 / 18 / 12 dias** conforme as faltas (6–14 / 15–23 / 24–32). Acréscimo de **1/3**. Podem acumular **até 2 períodos**; **parcelamento em até 2 etapas de 15 dias** (§12). Pagamento **no mês anterior** ao gozo (§8º). Raios X: **20 dias por semestre** (Art. 70).\n- **Hora extra (Art. 71):** **+50%**, máximo **2 horas** por jornada. **Adicional noturno (Art. 72):** **+25%**, das **22h às 5h**, hora de **52 min 30 s**.\n- **Bolsa de estudo (Art. 73):** só a servidor **estável**, curso ligado à função.\n- **Salário-família (Art. 63):** por dependente econômico (filhos até 21 anos, ou até 24 se estudante, ou inválido de qualquer idade).\n\n### Licenças (Art. 93 — 9 tipos)\n| Licença | Regra-chave |\n|---|---|\n| Doença em pessoa da família (Art. 95) | Até **90 dias** com remuneração, prorrogável por igual período; depois, até 90 dias sem remuneração |\n| Afastamento do cônjuge (Art. 96–97) | Prazo indeterminado, **sem remuneração** |\n| Atividade política (Art. 99) | Sem remuneração da convenção ao registro; depois, com vencimentos por **3 meses** |\n| **Capacitação (Art. 100)** | A cada **quinquênio**, **3 meses** remunerados |\n| Interesse particular (Art. 101) | Até **2 anos**, sem remuneração, a critério da Administração |\n| Mandato classista (Art. 102) | Com remuneração, a servidor **estável** |\n| Tratamento de saúde (Art. 103–104) | Atestado até **3 dias** homologado por médico da Junta Médica |\n| **Gestante (Art. 105)** | **180 dias** (LC 175/2008); natimorto: licença de 40 dias; aborto: **30 dias** (Art. 106) |\n| **Paternidade (Art. 107)** | **10 dias** consecutivos |\n| Adoção (Art. 108) | **120 dias** (criança até 1 ano); 60 dias (1 a 4 anos); 30 dias (4 a 8 anos) |\n| Lactante (Art. 109) | 1 hora diária até os **6 meses** do filho |\n\n- **Ausências sem prejuízo (Art. 118):** 1 dia para doar sangue; 1 dia para se alistar como eleitor; **2 dias** por falecimento de parente; casamento. **Servidor estudante (Art. 119):** até **6 dias por ano** e **3 por semestre** em dia de prova.\n- **Afastamentos (Art. 113):** servir a outro órgão, mandato eletivo, estudo ou missão. Vereador servidor: **havendo compatibilidade de horário**, acumula; senão, afasta-se (Art. 115). Estudo no exterior: até **2 anos** (Art. 116).\n\n### Regime disciplinar\n- **Deveres (Art. 131):** zelo, lealdade, observar normas, cumprir ordens (exceto manifestamente ilegais), assiduidade, urbanidade, sigilo, moralidade, representar contra ilegalidade etc. **Proibições (Art. 132):** ausentar-se sem autorização, retirar documento, coagir subordinados etc.\n- **Responsabilidades (Art. 133–138):** civil, penal e administrativa, **cumuláveis e independentes**; a administrativa é afastada só se a absolvição criminal **negar o fato ou a autoria**.\n- **Penalidades (Art. 139) — 6:** advertência, suspensão, destituição de cargo em comissão, destituição de função, demissão, cassação de aposentadoria/disponibilidade.\n- **Advertência:** por escrito (Art. 141). **Suspensão:** máx. **90 dias** (Art. 142); recusa a inspeção médica: até 15 dias; pode virar **multa de 50%**. **Cancelamento do registro:** advertência após **3 anos**, suspensão após **5 anos** (Art. 143).\n- **Demissão (Art. 147):** crime contra a administração, **abandono de cargo**, inassiduidade habitual, improbidade etc. **Abandono = mais de 30 dias consecutivos** de ausência intencional (Art. 149). **Inassiduidade habitual = 60 dias interpolados em 12 meses** (Art. 150).\n- **Competência punitiva (Art. 155):** **Prefeito** para suspensão acima de 30 dias, demissão e cassação; **Secretário** (cargo equivalente) nas demais.\n- **Prescrição (Art. 156):** **5 anos** (demissão, cassação, destituição); **2 anos** (suspensão). Procedimento parado **mais de 3 anos** prescreve (Art. 157).\n\n### Sindicância e PAD\n- **Sindicância (Art. 164):** conclui em **60 dias**, prorrogável por igual período; pode gerar arquivamento, **advertência ou suspensão até 30 dias**, ou PAD.\n- **PAD obrigatório (Art. 165):** para suspensão **acima de 30 dias**, demissão, cassação ou destituição.\n- **Afastamento preventivo (Art. 167):** sem prejuízo da remuneração, enquanto durar a apuração.\n- **Comissão (Art. 169):** **3 membros** (presidida pelo Corregedor-Geral + 2 servidores estáveis). **PAD conclui em 90 dias**, prorrogável por igual prazo (Art. 171). **Defesa prévia: 10 dias**, até **3 testemunhas** (Art. 172 §4º); **defesa final: 10 dias** (§23). Revelia: edital de 20 dias e **defensor dativo**.\n- **Julgamento (Art. 175):** **60 dias**, prorrogável. **Revisão (Art. 183):** a qualquer tempo, com fatos novos; **não pode agravar** a penalidade (§13).\n\n### Direito de petição (Título IV)\n- Requerimento despachado em **5 dias**; reconsideração e recurso decididos em **30 dias** (Art. 82). **Prazo para recorrer: 30 dias** (Art. 85). **Pedido de reconsideração não pode ser renovado** (Art. 81). Prescrição: **5 anos** (demissão, créditos) ou **120 dias** (demais casos) (Art. 87).\n\n**Tensão a conferir:** o Art. 192 do Estatuto **extinguiu** o adicional por tempo de serviço e a licença-prêmio no serviço público municipal. Como o Plano de Cargos da Câmara (LC 235) é lei específica, confirme no texto integral dela o que vale para o Legislativo.",
         "fixacao": [
-          "Posse **30 dias** / Exercício **5 dias** / Estágio **3 anos**.",
-          "Homologação **90 dias** / PcD **10%** / Débito **60 dias**.",
-          "Férias 30+1/3 (após 12 meses) / 13º até 20/12."
+          "Posse **30 dias** (prorrogável 1x) · Exercício **5 dias** · Estágio **3 anos** (comissão de 3 estáveis).",
+          "Homologação **90 dias** · PcD **até 10%** · Débito ao sair **60 dias** · Reposição **30 dias**, parcela até **10%**.",
+          "Abandono **mais de 30 dias seguidos** · Inassiduidade **60 dias em 12 meses**.",
+          "Sindicância **60 dias** · PAD **90 dias** · Julgamento **60 dias**.",
+          "Prescrição disciplinar **5 anos** (demissão) / **2 anos** (suspensão).",
+          "Gestante **180 dias** · Paternidade **10 dias** · Capacitação **3 meses por quinquênio**.",
+          "Férias **30 dias + 1/3**, após **12 meses**, até **2 parcelas de 15 dias**."
         ],
-        "fixacaoTitulo": "números da LC 93"
+        "fixacaoTitulo": "números do Estatuto"
       },
       {
         "id": "parte-b-plano-de-cargos-lc-235-2011-lc-609-2026",
         "titulo": "Parte B — Plano de Cargos (LC 235/2011 + LC 609/2026)",
-        "conteudo": "### Estrutura da carreira\n- **Art. 13:** a tabela tem **13 referências** (vertical) e **4 classes A, B, C, D** (horizontal).\n- **Art. 14 — percentuais:** **+5%** por referência; **+20%** por classe.\n\n### Como sobe\n- **Promoção horizontal (Art. 9–11):** mudança de **classe**, por **titulação**, interstício de **3 anos**.\n  - Classe A: superior + registro (ingresso) · B: 180h de cursos ou 2ª graduação · C: pós lato sensu (360h) · D: 2 pós ou mestrado.\n- **Progressão vertical (Art. 12):** 1 **referência** a cada **3 anos**, com avaliação de desempenho acima de 60/100.\n\n### Vantagens e teto\n- **Adicional por tempo de serviço (Art. 16 §1º):** **2% ao ano** sobre o vencimento base, até **50%**.\n- **Licença-prêmio (Art. 16 §1º):** **3 meses a cada 5 anos** de efetivo exercício.\n- **Teto (Art. 15):** nenhuma remuneração excede o **subsídio do Prefeito** (art. 37, XI, CF).\n- **LC 609/2026:** criou o cargo de **Analista Legislativo - TI** (5 vagas) e detalhou suas atribuições.",
+        "conteudo": "### O que a LC 609/2026 (03/07/2026) mudou — texto conferido\n- **Art. 1º** acrescentou ao Art. 4º da LC 235 os cargos de **Analista Legislativo** (TI, Segurança do Trabalho, Psicólogo, Assistente Social, Jornalismo) e de **Técnico Legislativo** (Sonorização e Cerimonial, com certificação de **60 horas**).\n- **Analista Legislativo – TI:** provimento **efetivo**, **ensino superior completo** em Engenharia da Computação, Análise de Sistemas, Ciência da Computação, Tecnologia da Informação, Redes de Computadores, Gestão de Redes ou áreas correlatas, com diploma **reconhecido pelo MEC**.\n- **Art. 2º** (§ 8º do Art. 4º) lista **37 atribuições** do Analista TI. Agrupadas:\n  - **Sistemas:** analisar, modelar e desenvolver sistemas; layouts de telas e relatórios; suporte ao usuário; acompanhar software de terceiros.\n  - **Infraestrutura:** monitorar redes e ambientes; administrar **bancos de dados** (disponibilidade, segurança, integridade, controle de acesso); **backup**, impressão e armazenamento; ambientes **cliente-servidor**; demanda por recursos computacionais.\n  - **Segurança:** normas e políticas de segurança da informação; **análise de riscos e vulnerabilidades**; ferramentas de segurança; **testes de intrusão, gestão de identidades e controle de acessos**; prevenção e resposta a **incidentes**.\n  - **Gestão e governança:** colaborar no **PDTI**; **fiscalizar contratos de TI**; propor contratações; indicadores de produtividade; projetos de modernização; **governança**; gerenciar equipes, riscos e viabilidade de projetos; documentação e manuais.\n  - **Dados:** coleta, tratamento, armazenamento e recuperação de informações; pesquisa, análise e processamento de dados para **decisão**.\n  - Fecha com \"outras atividades correlatas\" (inciso XXXVII).\n- **Art. 4º (Art. 6º-A):** **2 cargos de Controlador Interno** (provimento efetivo, ensino superior).\n- **Art. 5º — Anexos:** **Nível superior (CNS): 40 cargos** — Procurador Legislativo 3 · Controlador Interno 2 · Contador 4 · Analista Legislativo 22 · **Analista TI 5** · Seg. do Trabalho 1 · Psicólogo 1 · Assistente Social 1 · Jornalismo 1. **Nível médio (CNM): 56 cargos** — Técnico Legislativo 46 · Sonorização 2 · Cerimonial 2 · Taquígrafo (em extinção) 6.\n\n### O que veio apenas da versão anterior desta apostila (**não conferido**)\n- Tabela com **13 referências** e **4 classes (A–D)**; **+5%** por referência e **+20%** por classe; promoção horizontal por titulação e progressão vertical a cada 3 anos; adicional de 2% ao ano até 50%; licença-prêmio de 3 meses a cada 5 anos; teto no subsídio do Prefeito.\n- Confira no **texto integral da LC 235/2011**: o arquivo da base não o contém, e o Art. 192 do Estatuto extinguiu adicional por tempo de serviço e licença-prêmio.\n- O **teto** pelo subsídio do Prefeito vem do art. 37, XI, da CF (a Lei Orgânica repete a regra no Art. 49, XI).",
         "fixacao": [
-          "4 classes (A–D) × 13 referências; +20% por classe, +5% por referência.",
-          "Interstício de 3 anos (tanto horizontal quanto vertical).",
-          "Anuênio 2%/ano até 50%; licença-prêmio 3 meses a cada 5 anos."
+          "Analista TI: **superior em computação/redes**, **5 vagas**, **37 atribuições**.",
+          "Controlador Interno: **2** cargos. Total nível superior **40**; nível médio **56**.",
+          "O Analista TI **fiscaliza contratos**, administra **BD, backup e acesso** e faz **testes de intrusão**."
         ],
-        "fixacaoTitulo": "números da LC 235"
+        "fixacaoTitulo": "LC 609"
       },
       {
-        "id": "parte-c-lei-organica-e-regimento-interno-estudar",
-        "titulo": "Parte C — Lei Orgânica e Regimento Interno (estudar no texto oficial)",
-        "conteudo": "Ainda não temos o texto destas duas. Baixe no portal da Câmara e foque em:\n- **Lei Orgânica:** organização dos Poderes, competências do Município, processo legislativo municipal, número de vereadores, fiscalização.\n- **Regimento Interno (Res. 08/2016):** Mesa Diretora, Comissões, sessões (ordinárias/extraordinárias/solenes), quórum, tramitação de projetos.",
-        "fixacao": []
+        "id": "parte-c-lei-organica-do-municipio-de-cuiaba",
+        "titulo": "Parte C — Lei Orgânica do Município de Cuiabá",
+        "conteudo": "### Município e Poderes\n- Município de Cuiabá: pessoa jurídica de direito público interno, com autonomia **política, administrativa, financeira e legislativa** (Art. 1º). **Poderes:** Legislativo e Executivo, independentes e harmônicos (Art. 2º). **Símbolos:** Brasão, Hino e Bandeira (Art. 3º).\n\n### Câmara Municipal\n- **Composição (Art. 6º):** Vereadores eleitos pelo sistema **proporcional**, mandato de **4 anos**; o **número é fixado pela Justiça Eleitoral**.\n- **Condições de elegibilidade (Art. 7º):** nacionalidade brasileira, direitos políticos, alistamento, domicílio eleitoral, filiação partidária, **18 anos**, alfabetizado. (Prefeito e Vice: **21 anos**, Art. 32.)\n- **Sessões (Art. 8º):** ordinárias, extraordinárias ou solenes; públicas, salvo deliberação de **2/3**. Convocação extraordinária: Prefeito, ou Presidente/maioria dos membros, só para a matéria convocada (§3º–§4º).\n- **Deliberação (Art. 9º):** **maioria de votos, presente a maioria absoluta**. O ano legislativo **não encerra sem votar a LDO** (Art. 10).\n- **Competência privativa (Art. 11):** eleger a Mesa; elaborar o **Regimento Interno**; organizar serviços e **criar cargos e fixar vencimentos**; licença ao Prefeito/Vice/Vereadores; julgar as **contas do Prefeito** em **60 dias** do parecer do TCE (o parecer só deixa de prevalecer por **2/3**); título de **cidadão honorário por 2/3**; fiscalizar o Executivo; **convocar Secretários**. Resoluções tratam de economia interna; decretos legislativos, dos demais casos (XVI).\n- **Mesa (Art. 12 §5º):** mandato de **2 anos**, **vedada a recondução** para o mesmo cargo na eleição imediatamente seguinte. **Competência da Mesa (Art. 15):** regularidade dos trabalhos, propor criação/extinção de cargos, créditos suplementares.\n- **Presidente (Art. 16):** representa a Câmara; promulga resoluções e decretos legislativos; **autoriza as despesas**; mantém a ordem; **envia a prestação de contas ao TCE**.\n- **Vereadores:** **inviolabilidade** por opiniões, palavras e votos no mandato e na circunscrição (Art. 18). **Perda do mandato (Art. 20):** infringir vedações; decoro; corrupção; faltar a **1/3 das sessões ordinárias** no ano; residência fora do Município; direitos políticos. Cassação por vedação/decoro: **maioria absoluta**, voto nominal (§2º). **Suplente** convocado se a licença passar de **120 dias**; posse em **10 dias** (Art. 22).\n\n### Processo legislativo\n- **Compreende (Art. 23):** emendas à Lei Orgânica, leis complementares, leis ordinárias, resoluções e decretos legislativos.\n- **Emenda à LOM (Art. 24):** proposta de **1/3** dos vereadores, do Prefeito ou iniciativa popular; **2 turnos**, interstício mínimo de **10 dias**, aprovação por **2/3**; promulgada pela **Mesa**; não pode ser emendada em estado de sítio ou intervenção.\n- **Iniciativa (Art. 25):** qualquer Vereador, o Prefeito e o eleitorado (**5%** dos eleitores). **Lei complementar:** **maioria absoluta** (Art. 26).\n- **Iniciativa exclusiva do Prefeito (Art. 27):** cargos da administração direta, autárquica e fundacional e sua remuneração; servidores e regime jurídico; secretarias e órgãos; **matéria orçamentária**. Não se admite aumento de despesa.\n- **Urgência (Art. 28):** **45 dias**. **Sanção e veto (Art. 29):** projeto aprovado vai ao Prefeito em **10 dias úteis**; ele tem **15 dias úteis** para sancionar (silêncio = **sanção tácita**) ou vetar (comunica em **48 horas**). Veto parcial: só texto integral de artigo, parágrafo, inciso ou alínea. **Veto apreciado em 15 dias**, rejeitado por **maioria absoluta**, voto nominal. Promulgação: Prefeito em 48 h → **Presidente da Câmara** em 48 h → **1º Vice-Presidente**.\n\n### Executivo\n- Prefeito eleito por **maioria absoluta**, segundo turno em até **20 dias** (Art. 33). **Mandato 4 anos, vedada reeleição para o período subsequente** (Art. 38). Posse não ocorrida em **10 dias** = cargo vago (Art. 34). Vacância: substitui o Vice; depois, **Presidente da Câmara** (Art. 35–36). Ausência do Município por mais de **15 dias** exige licença da Câmara (Art. 39).\n\n### Administração pública (Título III)\n- **Princípios (Art. 49):** legalidade, impessoalidade, moralidade, publicidade e eficiência (LIMPE). **Concurso** público; **validade de até 2 anos, prorrogável uma vez** (inciso III); reserva para **pessoas com deficiência**; funções de confiança só para **efetivos**.\n- **Vencimentos do Legislativo não podem superar os do Executivo** (Art. 49, XII). Acumulação remunerada vedada, salvo as exceções constitucionais (dois cargos de professor; professor + técnico/científico; dois de saúde).\n- **Servidores:** **estabilidade após 3 anos** de efetivo exercício, com **avaliação especial de desempenho** (Art. 61). Normas que criam ou extinguem direitos de servidores: **somente por lei** (Art. 62). Mandato eletivo do servidor: Art. 50.\n- **Publicidade (Art. 63–66):** atos publicados na **Gazeta Municipal** ou Diário Oficial do Estado. **Certidões em até 15 dias** (Art. 64). Relatórios de gastos publicitários **30 dias** após cada trimestre (Art. 65). Publicidade **sem nomes, símbolos ou imagens** de promoção pessoal (Art. 49 §1º).",
+        "fixacao": [
+          "Mesa: mandato **2 anos**, **sem recondução** imediata. Vereador/Prefeito: **4 anos**.",
+          "Emenda à LOM: **1/3** propõe · **2 turnos** · **10 dias** de interstício · **2/3** aprova.",
+          "Sanção **15 dias úteis** · autógrafo **10 dias úteis** · veto apreciado em **15 dias**, derrubado por **maioria absoluta**.",
+          "Contas do Prefeito: **60 dias**; parecer do TCE só cai por **2/3**.",
+          "Estabilidade **3 anos** · Concurso válido **até 2 anos + 2**.",
+          "Perda de mandato por falta: **1/3 das sessões ordinárias** no ano."
+        ],
+        "fixacaoTitulo": "Lei Orgânica"
+      },
+      {
+        "id": "parte-d-regimento-interno-resolucao-n-008-de-15-",
+        "titulo": "Parte D — Regimento Interno (Resolução nº 008, de 15/12/2016)",
+        "conteudo": "### Funções e legislatura\n- **Sede:** Praça Paschoal Moreira Cabral (Art. 1º). **7 funções (Art. 2º):** institucional, legislativa, fiscalizadora, julgadora, administrativa, integrativa e de assessoramento.\n- **Legislatura de 4 anos**, em 4 sessões legislativas anuais (Art. 3º). **Sessão preparatória:** 1º de janeiro, **15h** (Art. 4º); dirige os trabalhos o **Vereador mais votado**, depois o mais idoso (Art. 5º). Posse do Prefeito às **19h** do mesmo dia. **Inauguração:** **2 de fevereiro, 9h** (Art. 14).\n- **Posse tardia:** o Vereador que não se empossar em **15 dias** é considerado renunciante, salvo motivo justo (Art. 8º §4º).\n- **Sessões solenes (Art. 20):** posse do Prefeito/Vice, posse e eleição da Mesa, **aniversário de Cuiabá (obrigatória)**, inauguração da legislatura, honrarias.\n\n### Mesa Diretora\n- **Composição (Art. 21):** Presidente, 1º e 2º Vice-Presidentes, 1º e 2º Secretários (**5 cargos**). Eleição por **chapas**, votação **nominal** (Art. 22). **Vedada a recondução** para o mesmo cargo (exceto assunção por destituição); **suplente não integra a Mesa** (Art. 23).\n- **Destituição (Art. 31):** comportamento desidioso, ineficiente ou uso do cargo para fins ilícitos; **2/3** do Plenário.\n- **Presidente (Art. 36):** preside, mantém a ordem, convoca sessões, promulga leis, declara extinção de mandatos, **ordena despesas**, administra o pessoal. **Só vota** em empate, quórum de 2/3, eleição e destituição da Mesa, perda de mandato e veto (§2º). **1º Secretário (Art. 41):** supervisiona serviços, faz a chamada, lê a ata, assina atos e cheques com o Presidente.\n- **Mesa — privativo (Art. 34):** propor projetos de cargos e remuneração; elaborar a **proposta orçamentária** da Câmara; **determinar concurso, homologá-lo e designar a banca**.\n\n### Comissões\n- **Permanentes (Art. 43) — 7:** (I) **Constituição, Justiça e Redação**; (II) Fiscalização e Acompanhamento da Execução Orçamentária; (III) Transporte, Urbanismo, Regularização Fundiária, Agropecuária, Segurança; (IV) Educação, Ciência, **Tecnologia**, Turismo, Desporto, Meio Ambiente, Cultura; (V) Saúde, Previdência, Assistência Social, Trabalho, **Administração**, Indústria, Comércio, Serviços e Obras Públicas; (VI) Defesa do Consumidor, Direitos Humanos, Cidadania; (VII) **Ética e Decoro Parlamentar**.\n- **Temporárias (Art. 44):** especiais, **CPI**, de representação, de investigação e processantes. Membros da Mesa **não integram** comissões (Art. 30, com exceções).\n\n### Sessões\n- **Ordinárias:** **terças e quintas, 9h**, duração de **3 horas** (Art. 113). **Extraordinárias:** em horário diverso; convocação em **24 horas**, só para a pauta (Art. 118). **Quórum de abertura: 1/3** (Art. 116); espera de até 1 hora.\n- **Fases (Art. 120):** **pequeno expediente** (9h, 1 h) → **grande expediente** (1 h; até **10 vereadores**, **6 min** cada) → **ordem do dia** (11h20, exige **maioria absoluta**) → **palavra livre** (**5 min**).\n- **Tribuna Livre (Art. 119):** 10h; 20 min para dois oradores (**10 min** cada); inscrição com **48 horas**.\n- **Audiência pública (Art. 133):** sem quórum mínimo; até **6 vereadores** (10 min) e **12 convidados**; duração máx. **3h20**.\n- **Ordem da pauta (Art. 126 §3º):** urgência especial → urgência simples → vetos → discussão única → 2ª discussão → 1ª discussão → recursos → demais.\n\n### Proposições e tramitação\n- **Proposições (Art. 142):** emenda à LOM, projeto de lei complementar, de lei, de decreto legislativo, de resolução, substitutivo, emenda, **veto**, parecer, requerimento, indicação, representação e moções.\n- **Autógrafo:** expedido em **10 dias úteis** (Art. 150). **Veto:** 15 dias úteis para o Prefeito; **sanção tácita** promulgada pelo Presidente em **72 horas**; veto apreciado em **15 dias** e rejeitado por **maioria absoluta**.\n- **Urgência especial (Art. 151–152):** dispensa tudo, exceto **quórum e pareceres obrigatórios**. **Urgência simples:** exclui adiamento e vista. Projetos do Executivo com prazo de **45 dias** entram na ordem do dia no 45º dia.\n- **Pedido de vista (Art. 189):** até **5 dias**, deferido **duas vezes**; não cabe em urgência.\n\n### Votação (Art. 175–188)\n| Quórum | Matérias |\n|---|---|\n| **Maioria simples**, presente a maioria absoluta | Regra geral (Art. 175) |\n| **Maioria absoluta** | Leis complementares; criação/extinção de cargos e vencimentos de servidores; empréstimos; **rejeição de veto**; leis orçamentárias; convocação de Secretário; criação de comissão especial (Art. 176) |\n| **2/3** | Concessão de direito real de uso; **nome de vias e logradouros**; anistia e isenção; **títulos honoríficos**; **alienação e aquisição de imóveis**; rejeição do parecer do TCE; recebimento de denúncia contra Prefeito/Vereador; sessões itinerantes; utilidade pública; **Regimento Interno**; **emenda à LOM** (Art. 177) |\n- **Processos de votação (Art. 182):** **simbólico (regra)**, **nominal** e **eletrônico**. Votação **nominal** obrigatória quando se exige maioria absoluta ou 2/3 (Art. 184). **Maioria absoluta** = primeiro número inteiro acima da metade. O voto é **público** (Art. 181). **Declaração de voto:** 3 min.\n\n### Administração e prazos\n- **Serviços administrativos (Art. 207):** regidos por **Regulamento Interno**, com **concurso público** para o quadro e para assessoramento técnico-legislativo. Reclamações à Mesa: providência em **72 horas** (Art. 208).\n- **Livros obrigatórios (Art. 209):** atas; registro de leis, decretos e resoluções; termos de posse de funcionários; termos de posse de Vereadores, Prefeito e Vice; declaração de bens.\n- **Transição (Art. 211):** relatório completo **45 dias antes** da entrega do cargo.\n- **Prazos (Art. 212):** em **dias corridos**; excluem o dia inicial; **suspensos no recesso**.\n\n### Onde o Regimento e a Lei Orgânica divergem\n| Tema | Lei Orgânica | Regimento (2016) |\n|---|---|---|\n| Sessão legislativa | **15/fev a 30/jun** e **1º/ago a 15/dez** (Art. 8º) | **02/fev a 17/jul** e **1º/ago a 22/dez** (Art. 18) |\n| Eleição da Mesa (2º biênio) | **20 de dezembro** do 2º ano (Art. 12 §3º) | **25 de agosto** (Art. 23) |\n| Legislatura | cada sessão com **dois períodos legislativos** (Art. 6º §1º) | **4 sessões legislativas anuais** (Art. 3º) |\n| Posse do Vereador retardatário | **15 dias** (Art. 12 §2º) | **15 dias** (Art. 8º §4º) |",
+        "fixacao": [
+          "Mesa = **5 cargos**; **7** comissões permanentes (CCJR é a primeira).",
+          "Sessão ordinária: **terça e quinta, 9h, 3 horas**; abertura com **1/3**; ordem do dia com **maioria absoluta**.",
+          "Maioria absoluta: **veto, cargos/vencimentos, leis complementares, orçamento**. **2/3: nome de rua, título honorífico, imóveis, Regimento, emenda à LOM**.",
+          "Votação: **simbólica** (regra) · **nominal** (obrigatória para quórum qualificado) · **eletrônica**.",
+          "Veto: **15 dias úteis** para vetar, **15 dias** para a Câmara apreciar; **sanção tácita** = Presidente promulga em **72 h** (RI) / **48 h** (LOM)."
+        ],
+        "fixacaoTitulo": "Regimento"
       }
     ],
     "questoes": [
@@ -1151,7 +1176,7 @@ export const CONTEUDO_GERADO: Record<string, ConteudoDisciplina> = {
           "5 dias"
         ],
         "correta": 1,
-        "comentario": "30 dias (prorrogável 1x) — Art. 24 §2º."
+        "comentario": "30 dias, prorrogável uma vez por igual período — Art. 24 §2º."
       },
       {
         "id": "q2",
@@ -1163,7 +1188,7 @@ export const CONTEUDO_GERADO: Record<string, ConteudoDisciplina> = {
           "60 dias"
         ],
         "correta": 0,
-        "comentario": "5 dias — Art. 26 §1º."
+        "comentario": "5 dias da posse, sob pena de exoneração — Art. 26 §1º."
       },
       {
         "id": "q3",
@@ -1179,87 +1204,147 @@ export const CONTEUDO_GERADO: Record<string, ConteudoDisciplina> = {
       },
       {
         "id": "q4",
-        "enunciado": "(LC 93, Art. 16) A homologação do concurso deve ocorrer em até:",
+        "enunciado": "(LC 93, Arts. 149 e 150) Configura abandono de cargo a ausência intencional por mais de:",
         "alternativas": [
-          "30 dias",
-          "60 dias",
-          "90 dias",
-          "120 dias"
+          "10 dias consecutivos",
+          "30 dias consecutivos",
+          "60 dias interpolados",
+          "90 dias consecutivos"
         ],
-        "correta": 2,
-        "comentario": "90 dias — Art. 16 §7º."
+        "correta": 1,
+        "comentario": "Abandono = ausência intencional por **mais de 30 dias consecutivos** (Art. 149). Os 60 dias interpolados em 12 meses são a **inassiduidade habitual** (Art. 150)."
       },
       {
         "id": "q5",
-        "enunciado": "(LC 93, Art. 69) As férias do servidor são de 30 dias, com acréscimo de:",
+        "enunciado": "(LC 93, Art. 69) Sobre as férias do servidor, é correto afirmar que:",
         "alternativas": [
-          "1/4",
-          "1/3",
-          "1/2",
-          "nenhum"
+          "são de 30 dias, com acréscimo de 1/3, após 12 meses de exercício, e podem ser parceladas em até duas etapas de 15 dias",
+          "são de 20 dias, com acréscimo de 1/2",
+          "não admitem parcelamento nem acumulação",
+          "dependem de 24 meses de exercício"
         ],
-        "correta": 1,
-        "comentario": "1/3 — Art. 69 §1º."
+        "correta": 0,
+        "comentario": "30 dias + 1/3, após 12 meses; parcelamento em até 2 etapas de 15 dias — Art. 69 §1º, §4º e §12."
       },
       {
         "id": "q6",
-        "enunciado": "(LC 235, Art. 14) O acréscimo percentual na mudança de uma classe para outra é de:",
+        "enunciado": "(LC 93, Art. 105) A licença à servidora gestante, sem prejuízo da remuneração, é de:",
         "alternativas": [
-          "5%",
-          "10%",
-          "20%",
-          "50%"
+          "90 dias",
+          "120 dias",
+          "150 dias",
+          "180 dias"
         ],
-        "correta": 2,
-        "comentario": "20% — Art. 14, II."
+        "correta": 3,
+        "comentario": "180 dias (redação da LC 175/2008) — Art. 105. O texto original dizia 120."
       },
       {
         "id": "q7",
-        "enunciado": "(LC 235, Art. 14) O acréscimo na mudança de uma referência para outra é de:",
+        "enunciado": "(LC 93, Art. 165) É obrigatória a instauração de processo administrativo disciplinar quando a penalidade for:",
         "alternativas": [
-          "5%",
-          "10%",
-          "20%",
-          "2%"
+          "advertência",
+          "suspensão de até 30 dias",
+          "suspensão acima de 30 dias",
+          "nenhuma, pois a sindicância sempre basta"
         ],
-        "correta": 0,
-        "comentario": "5% — Art. 14, I."
+        "correta": 2,
+        "comentario": "Suspensão acima de 30 dias, demissão, cassação ou destituição exigem PAD; até 30 dias pode ser resolvida na sindicância — Art. 164 e 165."
       },
       {
         "id": "q8",
-        "enunciado": "(LC 235, Art. 9) A promoção horizontal, que muda a classe do servidor, baseia-se em:",
+        "enunciado": "(LC 609/2026) O número de vagas criadas para Analista Legislativo – Tecnologia da Informação é:",
         "alternativas": [
-          "tempo de serviço apenas",
-          "qualificação/titulação",
-          "sorteio",
-          "indicação política"
+          "1",
+          "3",
+          "5",
+          "22"
         ],
-        "correta": 1,
-        "comentario": "Qualificação/titulação — Art. 9 §1º / Art. 11."
+        "correta": 2,
+        "comentario": "5 vagas (Anexo IV, LC 609/2026). As 22 são do Analista Legislativo geral."
       },
       {
         "id": "q9",
-        "enunciado": "(LC 235, Art. 16) O adicional por tempo de serviço é de 2% ao ano, limitado a:",
+        "enunciado": "(LC 609/2026) NÃO é atribuição do Analista Legislativo – TI:",
         "alternativas": [
-          "30%",
-          "40%",
-          "50%",
-          "100%"
+          "administrar bancos de dados, definindo políticas de segurança e controle de acesso",
+          "fiscalizar a execução de contratos de soluções de TI",
+          "supervisionar procedimentos de testes de intrusão e gestão de identidades",
+          "elaborar laudos de insalubridade e periculosidade das instalações"
         ],
-        "correta": 2,
-        "comentario": "50% — Art. 16 §1º, a."
+        "correta": 3,
+        "comentario": "Laudos de insalubridade são atribuição do Analista de Segurança do Trabalho (§ 9º); as demais estão no § 8º."
       },
       {
         "id": "q10",
-        "enunciado": "(LC 235, Art. 15) A remuneração do servidor não pode exceder:",
+        "enunciado": "(Lei Orgânica, Art. 6º) Os Vereadores são eleitos pelo sistema proporcional, com mandato de:",
         "alternativas": [
-          "o teto do INSS",
-          "o subsídio do Prefeito Municipal",
-          "o salário mínimo",
-          "o vencimento do Presidente da Câmara"
+          "2 anos",
+          "3 anos",
+          "4 anos",
+          "5 anos"
+        ],
+        "correta": 2,
+        "comentario": "4 anos — Art. 6º."
+      },
+      {
+        "id": "q11",
+        "enunciado": "(Lei Orgânica, Art. 24) A emenda à Lei Orgânica exige votação em dois turnos, com interstício mínimo de 10 dias, e aprovação por:",
+        "alternativas": [
+          "maioria simples",
+          "maioria absoluta",
+          "3/5 dos membros",
+          "2/3 dos membros"
+        ],
+        "correta": 3,
+        "comentario": "2/3 dos membros, em dois turnos — Art. 24 §1º."
+      },
+      {
+        "id": "q12",
+        "enunciado": "(Lei Orgânica, Art. 29) O Prefeito dispõe, para sancionar ou vetar o projeto de lei aprovado pela Câmara, de:",
+        "alternativas": [
+          "5 dias úteis",
+          "10 dias corridos",
+          "15 dias úteis",
+          "30 dias corridos"
+        ],
+        "correta": 2,
+        "comentario": "15 dias úteis; o silêncio é sanção tácita — Art. 29 §1º e §2º."
+      },
+      {
+        "id": "q13",
+        "enunciado": "(Regimento, Art. 21) A Mesa Diretora da Câmara compõe-se de:",
+        "alternativas": [
+          "Presidente e dois Secretários",
+          "Presidente, 1º e 2º Vice-Presidentes, 1º e 2º Secretários",
+          "Presidente, Vice-Presidente e três Secretários",
+          "Presidente e os líderes de bancada"
         ],
         "correta": 1,
-        "comentario": "Subsídio do Prefeito — Art. 15 (teto constitucional)."
+        "comentario": "Cinco cargos — Art. 21."
+      },
+      {
+        "id": "q14",
+        "enunciado": "(Regimento, Art. 177) Depende do voto favorável de dois terços dos membros da Câmara:",
+        "alternativas": [
+          "a rejeição de veto",
+          "a criação de cargos da Câmara",
+          "a concessão de título honorífico",
+          "a convocação de Secretário Municipal"
+        ],
+        "correta": 2,
+        "comentario": "Títulos honoríficos exigem 2/3 (Art. 177, IV). Rejeição de veto, cargos e convocação de Secretário exigem **maioria absoluta** (Art. 176)."
+      },
+      {
+        "id": "q15",
+        "enunciado": "(Regimento, Art. 113) As sessões ordinárias da Câmara realizam-se:",
+        "alternativas": [
+          "segundas e quartas, às 14h",
+          "terças e quintas, às 9h, com duração de 3 horas",
+          "todos os dias úteis, às 19h",
+          "apenas às quintas, às 9h"
+        ],
+        "correta": 1,
+        "comentario": "Terças e quintas, 9h, 3 horas — Art. 113, II."
       }
     ]
   },
@@ -1318,7 +1403,7 @@ export const CONTEUDO_GERADO: Record<string, ConteudoDisciplina> = {
       {
         "id": "9-governanca-de-ti",
         "titulo": "9. Governança de TI",
-        "conteudo": "- **PDTI/PDTIC** (instrumento de planejamento da TI; fases: preparação, diagnóstico, planejamento, acompanhamento — Guia do SISP). **COBIT** = governança; **ITIL** = gestão de serviços; **PMBOK** = projetos.\n- **COBIT 2019:** governança (**EDM** — avaliar, dirigir e monitorar) separada da gestão (APO, BAI, DSS, MEA). Governança dirige e monitora; gestão planeja e executa.\n- **ITIL 4:** sistema de valor de serviço, 4 dimensões, cadeia de valor, 34 práticas. **Incidente** (restaurar o serviço rápido) x **problema** (causa raiz) x **mudança** (alteração controlada) x **requisição** (pedido padrão). **SLA/ANS** formaliza o nível de serviço.\n- **PMBOK:** projeto é temporário e único. A 6ª edição tem 5 grupos de processos e 10 áreas de conhecimento; a 7ª trabalha com princípios e domínios de desempenho. **Riscos:** identificar, analisar, responder (evitar, mitigar, transferir, aceitar).",
+        "conteudo": "- **Governança x gestão** (cartilha TCE-PE): governança é da **alta administração** — define diretrizes, direciona e monitora (\"o que fazer e por quê\"); gestão é da equipe de TI — planeja, executa e controla o dia a dia (\"como fazer\"). A cartilha trata de 8 temas: conceitos, **PDTI**, **Comitê de TI**, **política de segurança**, **continuidade de serviços**, gestão de pessoal, **aquisições** e **catálogo de serviços**.\n- **PDTI/PDTIC** (instrumento de planejamento da TI; fases: preparação, diagnóstico, planejamento, acompanhamento — Guia do SISP). Elementos: **diagnóstico das necessidades, metas e ações, projetos e responsáveis, prazos e orçamento, alinhamento estratégico**. Integra-se ao **PPA, LDO, LOA, planejamento estratégico (PEI) e Plano de Contratações Anual (PCA)**. Ciclo: elaboração → acompanhamento → revisão. No cargo de Analista TI, **colaborar na elaboração do PDTI** é atribuição expressa (LC 609/2026, § 8º, IV). **COBIT** = governança; **ITIL** = gestão de serviços; **PMBOK** = projetos.\n- **COBIT 2019:** governança (**EDM** — avaliar, dirigir e monitorar) separada da gestão (APO, BAI, DSS, MEA). Governança dirige e monitora; gestão planeja e executa.\n- **ITIL 4:** sistema de valor de serviço, 4 dimensões, cadeia de valor, 34 práticas. **Incidente** (restaurar o serviço rápido) x **problema** (causa raiz) x **mudança** (alteração controlada) x **requisição** (pedido padrão). **SLA/ANS** formaliza o nível de serviço.\n- **PMBOK:** projeto é temporário e único. A 6ª edição tem 5 grupos de processos e 10 áreas de conhecimento; a 7ª trabalha com princípios e domínios de desempenho. **Riscos:** identificar, analisar, responder (evitar, mitigar, transferir, aceitar).",
         "fixacao": []
       },
       {
@@ -1336,13 +1421,13 @@ export const CONTEUDO_GERADO: Record<string, ConteudoDisciplina> = {
       {
         "id": "12-contratacao-de-ti-lei-14-133-2021",
         "titulo": "12. Contratação de TI — Lei 14.133/2021",
-        "conteudo": "- Nova Lei de Licitações (substituiu a 8.666/93, a do Pregão 10.520/2002 e o RDC). **Modalidades:** **pregão** (bens e serviços comuns, critério menor preço ou maior desconto), concorrência, concurso, leilão e **diálogo competitivo**. Tomada de preços e convite **deixaram de existir**.\n- **Fase preparatória:** estudo técnico preliminar (**ETP**), **Termo de Referência** (para bens e serviços), pesquisa de preços, matriz de riscos, edital. Depois: divulgação, propostas e lances, julgamento, habilitação, recurso, homologação. Divulgação no **PNCP**.\n- **Contratação direta:** licitação dispensável (art. 75, inclusive por valor, atualizado por decreto) e inexigível (competição inviável, art. 74). **Contratos de serviços contínuos:** até 5 anos, prorrogáveis até 10.\n- Referência para soluções de TIC: IN SGD/ME nº 94/2022 (vale para o Executivo federal; serve de guia para os demais entes).",
+        "conteudo": "- Nova Lei de Licitações (substituiu a 8.666/93, a do Pregão 10.520/2002 e o RDC). **Modalidades (Art. 28) — 5:** **pregão** (bens e serviços comuns, critério menor preço ou maior desconto), concorrência, concurso, leilão e **diálogo competitivo**. Tomada de preços e convite **deixaram de existir**, e **é vedado criar outras modalidades ou combiná-las** (Art. 28 §2º).\n- **Fase preparatória:** estudo técnico preliminar (**ETP**), **Termo de Referência** (para bens e serviços), pesquisa de preços, matriz de riscos, edital. Depois: divulgação, propostas e lances, julgamento, habilitação, recurso, homologação. Divulgação no **PNCP**.\n- **Contratação direta:** licitação dispensável (art. 75; por valor: **R$ 100 mil** para obras, serviços de engenharia e manutenção de veículos e **R$ 50 mil** para outros serviços e compras, valores **atualizados por decreto**) e inexigível (competição inviável, art. 74). **Contratos de serviços contínuos:** até **5 anos** (Art. 106), prorrogáveis sucessivamente até **10 anos** (Art. 107). **PNCP** (Art. 174): portal oficial de divulgação.\n- Referência para soluções de TIC: IN SGD/ME nº 94/2022 (vale para o Executivo federal; serve de guia para os demais entes).",
         "fixacao": []
       },
       {
         "id": "13-lgpd-e-lai",
         "titulo": "13. LGPD e LAI",
-        "conteudo": "- **LGPD (13.709/2018):** dado pessoal (identifica ou pode identificar alguém) e **sensível** (origem racial, saúde, biometria, religião etc.). **10 princípios:** finalidade, adequação, necessidade, livre acesso, qualidade dos dados, transparência, segurança, prevenção, não discriminação, responsabilização e prestação de contas.\n- **Bases legais** (art. 7º): consentimento, obrigação legal, execução de políticas públicas, estudos, contrato, exercício de direitos em processo, proteção da vida, tutela da saúde, **legítimo interesse**, proteção do crédito. **Agentes:** controlador (decide), operador (trata em nome do controlador), **encarregado** (canal com titular e ANPD). **ANPD** fiscaliza e aplica sanções (advertência, multa, bloqueio). O Poder Público tem regras próprias (cap. IV).\n- **LAI (12.527/2011):** transparência é a regra; sigilo é exceção. **Transparência ativa** (divulgar sem ser pedido) x **passiva** (responder a pedido). Pedido sem justificativa; resposta em até **20 dias**, prorrogáveis por mais 10; recurso em 10 dias. Sigilo: reservada 5 / secreta 15 / ultrassecreta 25 anos. Informação pessoal: restrita por 100 anos. Aplica-se também ao Legislativo municipal.",
+        "conteudo": "- **LGPD (13.709/2018):** dado pessoal (identifica ou pode identificar alguém) e **sensível** (origem racial, saúde, biometria, religião etc.). **10 princípios:** finalidade, adequação, necessidade, livre acesso, qualidade dos dados, transparência, segurança, prevenção, não discriminação, responsabilização e prestação de contas.\n- **Bases legais** (art. 7º): consentimento, obrigação legal, execução de políticas públicas, estudos, contrato, exercício de direitos em processo, proteção da vida, tutela da saúde, **legítimo interesse**, proteção do crédito. **Agentes:** controlador (decide), operador (trata em nome do controlador), **encarregado** (canal com titular e ANPD). **ANPD** (autarquia de natureza especial, após a Lei 14.460/2022) fiscaliza e é a **única** que aplica as sanções (Art. 55-K): advertência, **multa de até 2% do faturamento, limitada a R$ 50 milhões por infração**, bloqueio e eliminação dos dados. O controlador deve **comunicar à ANPD e ao titular** o incidente de segurança relevante (Art. 48) e indicar o **encarregado** (Art. 41). O Poder Público tem regras próprias (cap. IV).\n- **LAI (12.527/2011):** transparência é a regra; sigilo é exceção. **Transparência ativa** (divulgar sem ser pedido) x **passiva** (responder a pedido). Pedido sem justificativa (Art. 10); acesso imediato se disponível, senão resposta em até **20 dias**, prorrogáveis por mais **10** (Art. 11); **recurso em 10 dias** da ciência da negativa (Art. 15). Sigilo (Art. 24): **reservada 5 / secreta 15 / ultrassecreta 25 anos**. Informação pessoal: restrita por 100 anos. Aplica-se também ao Legislativo municipal.",
         "fixacao": []
       },
       {
