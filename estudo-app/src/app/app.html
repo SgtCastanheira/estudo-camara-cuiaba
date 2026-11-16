@@ -40,6 +40,17 @@
         <mat-icon matListItemIcon>home</mat-icon>
         <span matListItemTitle>Início</span>
       </a>
+      <a
+        mat-list-item
+        routerLink="/guia"
+        routerLinkActive
+        #guia="routerLinkActive"
+        [activated]="guia.isActive"
+        (click)="aoNavegar()"
+      >
+        <mat-icon matListItemIcon>explore</mat-icon>
+        <span matListItemTitle>Guia do concurso</span>
+      </a>
 
       @for (area of areas; track area.id) {
         <h3 matSubheader>{{ area.nome }}</h3>

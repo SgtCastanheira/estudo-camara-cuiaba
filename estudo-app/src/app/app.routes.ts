@@ -7,6 +7,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
   },
   {
+    path: 'guia',
+    title: 'Guia do concurso · Estudo',
+    loadComponent: () => import('./pages/guia/guia').then((m) => m.Guia),
+  },
+  {
     path: 'disciplina/:id',
     title: 'Disciplina · Estudo',
     loadComponent: () => import('./pages/disciplina/disciplina').then((m) => m.Disciplina),

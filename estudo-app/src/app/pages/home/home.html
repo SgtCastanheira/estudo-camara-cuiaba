@@ -39,6 +39,15 @@
     <div class="tile"><strong>3</strong><span>áreas de conhecimento</span></div>
   </section>
 
+  <a class="guia-atalho" routerLink="/guia">
+    <mat-icon>explore</mat-icon>
+    <span class="guia-texto">
+      <strong>Guia do concurso</strong>
+      <span>Estrutura da prova, estratégia, onde achar o conteúdo e como treinar</span>
+    </span>
+    <mat-icon>chevron_right</mat-icon>
+  </a>
+
   @for (area of areas; track area.id) {
     <section class="area">
       <h2 class="area-titulo">{{ area.nome }}</h2>

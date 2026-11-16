@@ -1,0 +1,268 @@
+<div class="pagina">
+  <header class="cabeca">
+    <h1>Guia do concurso</h1>
+    <p>
+      Estrutura da prova, estratégia, onde achar o conteúdo e como treinar. Câmara Municipal de
+      Cuiabá, Analista Legislativo (TI): Edital nº 001/2026-CMC, banca Instituto Selecon.
+    </p>
+  </header>
+
+  <mat-tab-group [selectedIndex]="aba()" animationDuration="0ms" mat-stretch-tabs="false" mat-align-tabs="start">
+    <!-- ---------------------------------------------------------- Visão geral -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="icone-aba">fact_check</mat-icon>
+        Prova
+      </ng-template>
+      <div class="aba">
+        <section class="tiles" aria-label="Resumo da prova">
+          <div class="tile"><strong>{{ totalQuestoes }}</strong><span>questões</span></div>
+          <div class="tile"><strong>100</strong><span>pontos</span></div>
+          <div class="tile"><strong>40%</strong><span>nota mínima</span></div>
+        </section>
+
+        <div class="grade">
+          @for (l of linhasProva; track l.area) {
+            <mat-card appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>{{ l.area }}</mat-card-title>
+                <mat-card-subtitle>
+                  {{ l.questoes }} questões · {{ l.pontos }} ponto por questão
+                </mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <p class="disciplinas">{{ l.disciplinas }}</p>
+                <p class="total">Total: <strong>{{ l.total }} pontos</strong></p>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+
+        <ul class="itens regras">
+          @for (r of regras; track r.titulo) {
+            <li>
+              <mat-icon class="marca-item">{{ r.icone }}</mat-icon>
+              <div>
+                <strong>{{ r.titulo }}</strong>
+                <p>{{ r.texto }}</p>
+              </div>
+            </li>
+          }
+        </ul>
+
+        <p class="nota">
+          A divisão de questões por disciplina é uma estimativa; o edital fixa só o total de cada
+          área. Confira sempre o edital oficial.
+        </p>
+      </div>
+    </mat-tab>
+
+    <!-- ---------------------------------------------------------- Estratégia -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="icone-aba">flag</mat-icon>
+        Estratégia
+      </ng-template>
+      <div class="aba">
+        <p class="lead">
+          Os Conhecimentos Específicos valem <strong>70 dos 100 pontos</strong>. É onde a prova é
+          ganha ou perdida, e é a sua área. Ordem sugerida de esforço:
+        </p>
+
+        @for (p of estrategia; track p.titulo; let i = $index) {
+          <mat-card appearance="outlined" class="passo">
+            <mat-card-header>
+              <span mat-card-avatar class="numero">{{ i + 1 }}</span>
+              <mat-card-title>{{ p.titulo }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ p.texto }}</p>
+              <mat-chip-set aria-label="Disciplinas deste passo">
+                @for (d of p.disciplinas; track d.id) {
+                  <a mat-chip [routerLink]="['/disciplina', d.id]">
+                    <mat-icon matChipAvatar>{{ d.icone }}</mat-icon>
+                    {{ d.nome }}
+                  </a>
+                }
+              </mat-chip-set>
+            </mat-card-content>
+          </mat-card>
+        }
+
+        <div class="destaque">
+          <mat-icon>star</mat-icon>
+          <p><strong>Regra de ouro.</strong> {{ regraDeOuro }}</p>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- ---------------------------------------------------------- Onde estudar -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="icone-aba">travel_explore</mat-icon>
+        Onde estudar
+      </ng-template>
+      <div class="aba">
+        <p class="nota legenda-links">
+          <mat-icon inline>verified</mat-icon> fonte oficial ·
+          <mat-icon inline>open_in_new</mat-icon> material de estudo ·
+          <mat-icon inline>search</mat-icon> pesquisa pronta. Os links foram achados em pesquisa
+          em 16/11/2026 e não foram abertos um a um; se algum falhar, busque pelo nome.
+        </p>
+
+        <mat-accordion multi>
+          @for (g of materiais; track g.id) {
+            <mat-expansion-panel [expanded]="g.id === 'legislacao'">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <mat-icon>{{ g.icone }}</mat-icon>
+                  {{ g.titulo }}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              @if (g.intro) {
+                <p class="intro">{{ g.intro }}</p>
+              }
+              @for (r of g.recursos; track r.titulo; let ultimo = $last) {
+                <div class="recurso">
+                  <h3>{{ r.titulo }}</h3>
+                  <p>{{ r.descricao }}</p>
+                  <div class="links">
+                    @for (l of r.links; track l.url) {
+                      <a
+                        mat-stroked-button
+                        [href]="l.url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        [attr.aria-label]="l.rotulo + ' (' + rotuloLink[l.tipo] + ', abre em nova aba)'"
+                      >
+                        <mat-icon>{{ iconeDoLink(l.tipo) }}</mat-icon>
+                        {{ l.rotulo }}
+                      </a>
+                    }
+                  </div>
+                </div>
+                @if (!ultimo) {
+                  <mat-divider />
+                }
+              }
+            </mat-expansion-panel>
+          }
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>checklist</mat-icon>
+                Os 14 blocos de TI
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p class="intro">
+              Núcleo da prova e tema da discursiva. Para cada bloco, o que estudar e boas fontes.
+              O conteúdo explicado está na apostila
+              <a [routerLink]="['/disciplina', 'ti']">Específicos de TI</a>.
+            </p>
+            @for (b of blocosTI; track b.n; let ultimo = $last) {
+              <div class="recurso">
+                <h3><span class="numero pequeno">{{ b.n }}</span> {{ b.bloco }}</h3>
+                <p><strong>O que estudar:</strong> {{ b.estudar }}</p>
+                <p><strong>Onde achar:</strong> {{ b.onde }}</p>
+              </div>
+              @if (!ultimo) {
+                <mat-divider />
+              }
+            }
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-tab>
+
+    <!-- ---------------------------------------------------------- Treinar -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="icone-aba">edit_note</mat-icon>
+        Treinar
+      </ng-template>
+      <div class="aba">
+        <h2 class="subtitulo">Bancos de questões</h2>
+        <p class="nota">
+          Filtre por questões da Selecon (a banca deste concurso) para pegar o estilo de cobrança.
+        </p>
+        <div class="grade">
+          @for (b of bancos; track b.nome) {
+            <mat-card appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>{{ b.nome }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{ b.texto }}</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <a mat-button [href]="b.url" target="_blank" rel="noopener noreferrer">
+                  <mat-icon>open_in_new</mat-icon>
+                  Abrir
+                </a>
+              </mat-card-actions>
+            </mat-card>
+          }
+        </div>
+
+        <h2 class="subtitulo">Treino da discursiva (tema de TI)</h2>
+        <ol class="itens">
+          @for (p of passosDiscursiva; track p; let i = $index) {
+            <li>
+              <span class="numero pequeno">{{ i + 1 }}</span>
+              <p>{{ p }}</p>
+            </li>
+          }
+        </ol>
+
+        <div class="destaque">
+          <mat-icon>event</mat-icon>
+          <p><strong>Rotina sugerida.</strong> {{ rotina }}</p>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- ---------------------------------------------------------- NotebookLM -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="icone-aba">auto_stories</mat-icon>
+        NotebookLM
+      </ng-template>
+      <div class="aba">
+        <h2 class="subtitulo">Como alimentar</h2>
+        <ol class="itens">
+          @for (p of passosNotebook; track p; let i = $index) {
+            <li>
+              <span class="numero pequeno">{{ i + 1 }}</span>
+              <p>{{ p }}</p>
+            </li>
+          }
+        </ol>
+        <a mat-stroked-button href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer">
+          <mat-icon>open_in_new</mat-icon>
+          Abrir o NotebookLM
+        </a>
+
+        <h2 class="subtitulo">Prompts prontos</h2>
+        @for (p of prompts; track p.titulo) {
+          <mat-card appearance="outlined" class="prompt">
+            <mat-card-header>
+              <mat-card-title>{{ p.titulo }}</mat-card-title>
+              <mat-card-subtitle>{{ p.onde }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <pre class="texto-prompt">{{ p.texto }}</pre>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button (click)="copiar(p.texto)">
+                <mat-icon>content_copy</mat-icon>
+                Copiar
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        }
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
